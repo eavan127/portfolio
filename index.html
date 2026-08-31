@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eavan Tan — AI/ML Engineering Portfolio</title>
+<meta name="description" content="Eavan Tan — Computer Science undergraduate at Universiti Teknologi PETRONAS, PETRONAS scholar, AI/ML engineer. RAG pipelines, computer vision, VR and full-stack projects." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-theme="emerald">
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark">ET</span>
+      <span class="brand-text">Eavan&nbsp;Tan</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#awards">Awards</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Connect</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-sm btn-solid" href="assets/Eavan_Tan_Resume.pdf" download>Résumé</a>
+      <button class="icon-btn" id="paletteBtn" aria-label="Change colour theme" title="Change colour theme">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="14.5" cy="9.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15.5" cy="14" r="1.3" fill="currentColor" stroke="none"/></svg>
+      </button>
+      <button class="icon-btn" id="menuBtn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PALETTE PICKER ============ -->
+<aside class="palette-panel" id="palettePanel" aria-hidden="true">
+  <div class="pp-head">
+    <div>
+      <h4>Choose a palette</h4>
+      <p>Six refined combinations. Click one — the whole site re-skins live.</p>
+    </div>
+    <button class="icon-btn" id="paletteClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="pp-list" id="ppList"></div>
+  <div class="pp-foot">
+    <span class="pp-current">Current: <strong id="ppCurrent">Emerald &amp; Antique Gold</strong></span>
+  </div>
+</aside>
+<div class="scrim" id="scrim"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">PETRONAS Scholar · CGPA 3.93 · Available May – Dec 2027</span>
+      <h1>Eavan Tan</h1>
+      <p class="role">AI / ML Engineer <span class="sep">·</span> Computer Science Undergraduate</p>
+      <p class="tagline">RAG &amp; LLM Pipelines <span>|</span> Computer Vision <span>|</span> Deep Learning <span>|</span> VR <span>|</span> Full-Stack</p>
+      <p class="lede">
+        First-year Computer Science student at Universiti Teknologi PETRONAS building
+        production-shaped AI systems — and leading the teams that ship them. Three national
+        and international competition podiums in one year.
+      </p>
+      <ul class="value-list">
+        <li><span class="tick"></span>Turn slow manual workflows into AI pipelines — <strong>12.5 hours down to 15 minutes</strong></li>
+        <li><span class="tick"></span>Train and fine-tune vision models on real, messy, self-labelled data</li>
+        <li><span class="tick"></span>Design retrieval systems that know when <em>not</em> to answer</li>
+        <li><span class="tick"></span>Lead cross-disciplinary teams of up to six to competition finals</li>
+      </ul>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-solid">Explore Projects</a>
+        <a href="assets/Eavan_Tan_Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">View Résumé</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://github.com/eavan127" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.93c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/eavan-tan-a13785324" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H9z"/></svg>
+        </a>
+        <a href="mailto:evan17tan@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-photo reveal">
+      <div class="photo-frame">
+        <!-- Replace assets/profile.jpg with your photo -->
+        <img src="assets/profile.jpg" alt="Eavan Tan"
+             onerror="this.style.display='none';this.parentElement.classList.add('no-photo')" />
+        <div class="photo-fallback"><span>ET</span><small>add assets/profile.jpg</small></div>
+      </div>
+      <div class="float-stat fs-1"><strong>3.93</strong><span>CGPA</span></div>
+      <div class="float-stat fs-2"><strong>3</strong><span>Competition podiums</span></div>
+      <div class="float-stat fs-3"><strong>98%</strong><span>Runtime cut, NEXA</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERTISE ============ -->
+<section class="section" id="expertise">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">What I do</span>
+      <h2>My Expertise</h2>
+      <p>Four areas where I've shipped working systems, not just coursework.</p>
+    </div>
+    <div class="grid-4">
+      <article class="card exp-card reveal">
+        <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <h3>LLM &amp; RAG Engineering</h3>
+        <p>Retrieval pipelines with embedding search, confidence gating, role-based agents and circuit breakers against model failure and prompt injection.</p>
+        <div class="chips"><span>LangChain</span><span>Ollama</span><span>FAISS</span><span>GROQ</span><span>Bedrock</span></div>
+      </article>
+      <article class="card exp-card reveal">
+        <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M7 9h.01"/></svg></div>
+        <h3>Computer Vision</h3>
+        <p>Object detection and re-identification trained on data I labelled myself — YOLO11 detectors, ResNet embeddings, and classical OpenCV severity analysis.</p>
+        <div class="chips"><span>YOLO11</span><span>ResNet18</span><span>OpenCV</span><span>pgvector</span></div>
+      </article>
+      <article class="card exp-card reveal">
+        <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 17V9M9 17V5M14 17v-6M19 17v-9"/><path d="M3 20.5h18"/></svg></div>
+        <h3>Deep Learning from Scratch</h3>
+        <p>Custom architectures where no pretrained backbone exists — dual-branch CNNs over raw RF signals, multi-label heads, attention pooling, full test coverage.</p>
+        <div class="chips"><span>PyTorch</span><span>Multi-label</span><span>STFT</span><span>pytest</span></div>
+      </article>
+      <article class="card exp-card reveal">
+        <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 3 8v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></div>
+        <h3>Product &amp; Team Delivery</h3>
+        <p>End-to-end builds — FastAPI backends, Supabase/Postgres schemas, React and Unity front ends — delivered under competition deadlines with a team behind me.</p>
+        <div class="chips"><span>FastAPI</span><span>Supabase</span><span>React</span><span>Unity</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section alt" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Selected work</span>
+      <h2>Projects</h2>
+      <p>Fourteen builds across AI, vision, VR, web and systems. Each card links to source and, where deployed, a live build.</p>
+    </div>
+
+    <div class="filters reveal" id="filters">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="ai">AI / ML</button>
+      <button class="filter" data-filter="cv">Computer Vision</button>
+      <button class="filter" data-filter="vr">VR / Unity</button>
+      <button class="filter" data-filter="web">Web &amp; Mobile</button>
+      <button class="filter" data-filter="data">Data &amp; SQL</button>
+      <button class="filter" data-filter="sys">Systems &amp; DSA</button>
+    </div>
+
+    <div class="grid-3" id="projectGrid"></div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Toolbox</span>
+      <h2>Technical Skills</h2>
+      <p>What I reach for, grouped by where it sits in the stack.</p>
+    </div>
+    <div class="grid-2 skills-grid">
+      <div class="card skill-card reveal">
+        <h3><span class="dot"></span>AI &amp; Machine Learning</h3>
+        <div class="chips lg">
+          <span>Machine Learning</span><span>Deep Learning</span><span>Computer Vision</span><span>NLP</span>
+          <span>RAG</span><span>YOLO11</span><span>ResNet18</span><span>FAISS</span><span>Vector Search</span>
+          <span>Sentence Transformers</span><span>LangChain</span><span>Ollama</span><span>GROQ API</span>
+          <span>Amazon Bedrock</span><span>Microsoft Azure AI</span><span>Google Gemini</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal">
+        <h3><span class="dot"></span>Cloud &amp; Backend</h3>
+        <div class="chips lg">
+          <span>FastAPI</span><span>REST API</span><span>PostgreSQL</span><span>Supabase</span>
+          <span>Oracle SQL</span><span>DBMS Design</span><span>pgvector</span><span>JWT Auth</span>
+          <span>AWS</span><span>Git</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal">
+        <h3><span class="dot"></span>Languages &amp; Dev Tools</h3>
+        <div class="chips lg">
+          <span>Python</span><span>TypeScript</span><span>C#</span><span>C++</span><span>VB.NET</span>
+          <span>SQL</span><span>React</span><span>React Native / Expo</span><span>Streamlit</span>
+          <span>Unity</span><span>Three.js</span><span>Vercel</span><span>Kiro</span><span>draw.io</span>
+        </div>
+      </div>
+      <div class="card skill-card reveal">
+        <h3><span class="dot"></span>Spoken Languages</h3>
+        <div class="lang-list">
+          <div class="lang"><span>Mandarin</span><em>Native</em><i style="--w:100%"></i></div>
+          <div class="lang"><span>English</span><em>C1 — Oxford OOPT</em><i style="--w:90%"></i></div>
+          <div class="lang"><span>Malay</span><em>Professional</em><i style="--w:80%"></i></div>
+          <div class="lang"><span>Cantonese</span><em>Working</em><i style="--w:60%"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section alt" id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Leadership &amp; soft skills in practice</span>
+      <h2>Experience</h2>
+      <p>Positions held, and the human skills each one actually built.</p>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- ============ AWARDS ============ -->
+<section class="section" id="awards">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Recognition</span>
+      <h2>Awards &amp; Honours</h2>
+      <p>Competition results and academic distinctions.</p>
+    </div>
+    <div class="grid-3" id="awardGrid"></div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="section alt" id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Academic background</span>
+      <h2>Education</h2>
+    </div>
+    <div class="grid-2">
+      <article class="card edu-card reveal">
+        <div class="edu-top"><span class="badge">Sep 2025 — Dec 2028</span><span class="gpa">CGPA 3.93</span></div>
+        <h3>Bachelor of Computer Science</h3>
+        <p class="inst">Universiti Teknologi PETRONAS</p>
+        <p>Core coursework in algorithms and data structures, object-oriented programming, database systems, and applied AI. PETRONAS Education Sponsorship Programme (PESP) scholar.</p>
+        <div class="chips"><span>PESP Scholar</span><span>Dean's-level CGPA</span></div>
+      </article>
+      <article class="card edu-card reveal">
+        <div class="edu-top"><span class="badge">Sep 2024 — Aug 2025</span><span class="gpa">CGPA 4.00</span></div>
+        <h3>Foundation in Computer Science</h3>
+        <p class="inst">Universiti Teknologi PETRONAS</p>
+        <p>Completed the foundation programme with a perfect grade point average, earning both the Foundation 4.0 Excellence Award and the Foundation First Class Award.</p>
+        <div class="chips"><span>4.0 Excellence Award</span><span>First Class Award</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section class="section" id="certifications">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Verified learning</span>
+      <h2>Certifications</h2>
+      <p>Cloud, AI and language credentials.</p>
+    </div>
+    <div class="grid-3" id="certGrid"></div>
+  </div>
+</section>
+
+<!-- ============ RESUME ============ -->
+<section class="section alt resume-sec">
+  <div class="wrap resume-band reveal">
+    <div>
+      <span class="kicker">One page, two sides</span>
+      <h2>Professional Résumé</h2>
+      <p>The full written record — projects, metrics, leadership positions, awards and references.</p>
+    </div>
+    <div class="resume-actions">
+      <a class="btn btn-solid" href="assets/Eavan_Tan_Resume.pdf" download>Download PDF</a>
+      <a class="btn btn-ghost" href="assets/Eavan_Tan_Resume.pdf" target="_blank" rel="noopener">Open in browser</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Let's talk</span>
+      <h2>Get In Touch</h2>
+      <p>Open to AI/ML internship placements from May to December 2027 — and to interesting problems any time.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <a class="ci-row" href="mailto:evan17tan@gmail.com">
+          <span class="ci-ico">✉</span>
+          <span><em>Personal email</em><strong>evan17tan@gmail.com</strong></span>
+        </a>
+        <a class="ci-row" href="mailto:eavan_24006152@utp.edu.my">
+          <span class="ci-ico">🎓</span>
+          <span><em>University email</em><strong>eavan_24006152@utp.edu.my</strong></span>
+        </a>
+        <a class="ci-row" href="tel:+60105051219">
+          <span class="ci-ico">☎</span>
+          <span><em>Phone</em><strong>+60 10-505-1219</strong></span>
+        </a>
+        <a class="ci-row" href="https://github.com/eavan127" target="_blank" rel="noopener">
+          <span class="ci-ico">◈</span>
+          <span><em>GitHub</em><strong>github.com/eavan127</strong></span>
+        </a>
+        <a class="ci-row" href="https://linkedin.com/in/eavan-tan-a13785324" target="_blank" rel="noopener">
+          <span class="ci-ico">in</span>
+          <span><em>LinkedIn</em><strong>eavan-tan-a13785324</strong></span>
+        </a>
+        <div class="ci-row static">
+          <span class="ci-ico">◎</span>
+          <span><em>Based in</em><strong>Perak, Malaysia</strong></span>
+        </div>
+      </div>
+
+      <form class="contact-form card reveal" id="contactForm">
+        <h3>Send a message</h3>
+        <label>Name<input type="text" name="name" required placeholder="Your name" /></label>
+        <label>Email<input type="email" name="email" required placeholder="you@company.com" /></label>
+        <label>Message<textarea name="message" rows="5" required placeholder="What would you like to talk about?"></textarea></label>
+        <button type="submit" class="btn btn-solid full">Send message</button>
+        <p class="form-note" id="formNote">Opens your mail client with the message pre-filled.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <span class="brand-mark">ET</span>
+      <p>Eavan Tan — AI/ML Engineer in training. Built from scratch, no template.</p>
+    </div>
+    <nav class="footer-links">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact">Connect</a>
+    </nav>
+    <p class="copy">© <span id="year"></span> Eavan Tan. All rights reserved.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
