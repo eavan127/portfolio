@@ -12,6 +12,7 @@ resources/data.js               ALL CONTENT, edit this file
 resources/script.js             section routing, renderers, theme + palette
 resources/assets/docs/          resume PDF
 resources/assets/hero/          put profile.jpg here
+src/                            numbered section images
 ```
 
 It is a single-page app: the nav swaps sections in and out rather than
@@ -23,11 +24,42 @@ Everything readable lives in `resources/data.js`. Add a project by appending an
 object to `projects`; the card, its filter category and its links render
 themselves.
 
-- `repo: null` renders "Repository private"
-- `live: null` renders "No live deployment"
+Each project renders one button per link it actually has. Omit a field, or
+set it to `null`, and that button simply does not appear:
+
+| Field | Button |
+|-------|--------|
+| `live` + `liveLabel` | filled button, label of your choosing |
+| `repo` | Repository |
+| `deck` | Pitch deck |
+| `video` | Demo video |
+
+A project with none of them shows a single muted "Not publicly available".
 
 Fields marked as rich text, `bio`, project `impact`, expertise `bullets` 
 accept `<strong>` for emphasis. Every other field is escaped and shown as-is.
+
+## Section images
+
+Drop images in `src/`, numbered by the order the sections appear on the page:
+
+| File | Section |
+|------|---------|
+| `src/session_title_1` | My Expertise |
+| `src/session_title_2` | Projects |
+| `src/session_title_3` | Skills |
+| `src/session_title_4` | Experience |
+| `src/session_title_5` | Awards and Honours |
+
+Each slot tries `.jpg`, `.png`, `.webp`, then `.jpeg`, so any of those
+extensions works. A missing file inserts nothing at all: no gap, no broken
+icon, no layout shift.
+
+They render as a wide band above the section title, cover-cropped to 21:6 on
+desktop, so landscape images around 1600x460 or wider look best.
+
+To point a number at a different section, edit `sectionImages` in
+`resources/data.js` and change the `section` value to that section's id.
 
 ## Adding your photo
 
@@ -52,6 +84,12 @@ lives in the two token blocks at the top of `resources/styles.css`.
 
 To use tahahassan's redder accent instead, change `--accent-secondary` to
 `#EF4444` in both blocks. Nothing else moves.
+
+## House style
+
+No em or en dashes anywhere in the copy. Use commas, colons or full stops
+instead, and write ranges as "88 to 95%" or "2025 to 2028". Hyphens inside
+compound words are fine and expected (real-time, six-member, AI-Assisted).
 
 ## Typography
 

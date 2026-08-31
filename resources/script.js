@@ -45,7 +45,11 @@
         'git-branch': '<circle cx="6" cy="5" r="2.5"/><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="9" r="2.5"/><path d="M6 7.5v9M18 11.5c0 3.5-3 4.5-6 4.5"/>',
         'check-circle': '<circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
         smartphone: '<rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18.5h2"/>',
-        external: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'
+        external: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
+        deck: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+        play: '<circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5z"/>',
+        report: '<path d="M9 3.5h6a1 1 0 0 1 1 1V5h1a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1v-.5a1 1 0 0 1 1-1z"/><path d="M9 4.5h6M9 11h6M9 15h4"/><path d="m8.5 8 1 1 2-2"/>',
+        flask: '<path d="M9 3h6M10 3v6l-4.5 8a1.5 1.5 0 0 0 1.3 2.3h10.4a1.5 1.5 0 0 0 1.3-2.3L14 9V3"/><path d="M8 15h8"/>'
     };
 
     function icon(name, cls) {
@@ -58,12 +62,6 @@
         return '<svg viewBox="0 0 24 24" aria-hidden="true">' + (PATHS[name] || PATHS.grid) + '</svg>';
     }
 
-    const KV_GLYPH = {
-        neural: '<circle cx="5" cy="6" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="5" cy="18" r="1.6"/><circle cx="12" cy="9" r="1.6"/><circle cx="12" cy="15" r="1.6"/><circle cx="19" cy="12" r="1.6"/><path d="M6.5 6.6 10.6 8.5M6.5 11.6l4.1-2M6.5 12.5l4.1 2M6.5 17.4l4.1-1.9M13.5 9.4l4 2M13.5 14.5l4-2"/>',
-        vision: '<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3.2"/><path d="M12 4V2M12 22v-2M4 6 2.5 4.5M20 6l1.5-1.5"/>',
-        team: '<circle cx="12" cy="6" r="2.6"/><circle cx="5.5" cy="17" r="2.6"/><circle cx="18.5" cy="17" r="2.6"/><path d="M12 8.6v3.9M12 12.5 6.9 15.2M12 12.5l5.1 2.7"/>'
-    };
-
     /* ---------------------------------------------------------------------
        HERO
        --------------------------------------------------------------------- */
@@ -72,10 +70,6 @@
         $('#heroRole').innerHTML = D.role;
         $('#heroMicroline').textContent = D.microline;
         $('#heroBio').innerHTML = D.bio.map(b => '<p>' + b + '</p>').join('');
-
-        $('#heroBadges').innerHTML = D.heroBadges.map(b =>
-            '<div class="hero-badge"><strong>' + esc(b.value) + '</strong><span>' + esc(b.label) + '</span></div>'
-        ).join('');
 
         const s = D.socialLinks;
         $('#heroSocials').innerHTML =
@@ -101,27 +95,6 @@
     }
 
     /* ---------------------------------------------------------------------
-       ABOUT / EXPERTISE
-       --------------------------------------------------------------------- */
-    function renderAbout() {
-        $('#knowledgeContainer').innerHTML = D.about.domains.map(d =>
-            '<div class="knowledge-row fade-up">' +
-                '<div class="knowledge-visual">' +
-                    '<svg class="kv-glyph" viewBox="0 0 24 24" aria-hidden="true">' +
-                    (KV_GLYPH[d.glyph] || KV_GLYPH.neural) + '</svg>' +
-                '</div>' +
-                '<div class="knowledge-content">' +
-                    '<h3>' + esc(d.title) + '</h3>' +
-                    '<div class="knowledge-icons">' + d.icons.map(i => icon(i, '')).join('') + '</div>' +
-                    '<ul class="knowledge-bullets">' +
-                        d.bullets.map(b => '<li>' + b + '</li>').join('') +
-                    '</ul>' +
-                '</div>' +
-            '</div>'
-        ).join('');
-    }
-
-    /* ---------------------------------------------------------------------
        PROJECTS
        --------------------------------------------------------------------- */
     function renderProjects() {
@@ -131,20 +104,26 @@
         ).join('');
 
         $('#projectsGrid').innerHTML = D.projects.map(p => {
-            let actions = '';
-            actions += p.repo
-                ? '<a class="btn btn-outline btn-sm" href="' + esc(p.repo) + '" target="_blank" rel="noopener">' +
-                  icon('github') + 'Repository</a>'
-                : '<span class="link-disabled">Repository private</span>';
-            actions += p.live
-                ? '<a class="btn btn-primary btn-sm" href="' + esc(p.live) + '" target="_blank" rel="noopener">' +
-                  icon('external') + esc(p.liveLabel || 'Live') + '</a>'
-                : '<span class="link-disabled">No live deployment</span>';
+            const link = (href, cls, ic, label) =>
+                '<a class="btn ' + cls + ' btn-sm" href="' + esc(href) +
+                '" target="_blank" rel="noopener">' + icon(ic) + esc(label) + '</a>';
+
+            // Only a link a project actually has gets a button. Nothing
+            // renders in place of a missing one, no placeholder text either.
+            const parts = [];
+            if (p.live)   parts.push(link(p.live, 'btn-primary', 'external', p.liveLabel || 'Live demo'));
+            if (p.repo)   parts.push(link(p.repo, 'btn-outline', 'github', 'Repository'));
+            if (p.deck)   parts.push(link(p.deck, 'btn-outline', 'deck', 'Pitch deck'));
+            if (p.video)  parts.push(link(p.video, 'btn-outline', 'play', 'Demo video'));
+            if (p.report) parts.push(link(p.report, 'btn-outline', 'report', 'Assignment report'));
+            if (p.erd)    parts.push(link(p.erd, 'btn-outline', 'layers', 'ERD diagram'));
+            const actions = parts.join('');
 
             return '<article class="project-card fade-up" data-cats="' + esc(p.cats.join(' ')) + '">' +
-                '<div class="project-thumb">' +
+                '<div class="project-thumb" id="thumb-' + esc(p.title.replace(/[^a-z0-9]/gi, '')) + '">' +
                     glyph(p.glyph) +
-                    (p.award ? '<span class="project-award">★ ' + esc(p.award) + '</span>' : '') +
+                    (p.prototype ? '<span class="project-award proto">Prototype</span>' :
+                     p.award ? '<span class="project-award">★ ' + esc(p.award) + '</span>' : '') +
                     '<span class="project-date">' + esc(p.date) + '</span>' +
                 '</div>' +
                 '<div class="project-body">' +
@@ -154,7 +133,7 @@
                     '<ul class="project-impact">' + p.impact.map(i => '<li>' + i + '</li>').join('') + '</ul>' +
                     '<div class="tag-list">' + p.tags.map(t => '<span class="tag">' + esc(t) + '</span>').join('') + '</div>' +
                 '</div>' +
-                '<div class="project-actions">' + actions + '</div>' +
+                (actions ? '<div class="project-actions">' + actions + '</div>' : '') +
             '</article>';
         }).join('');
 
@@ -166,6 +145,27 @@
             $$('.project-card').forEach(c => {
                 const show = f === 'all' || c.dataset.cats.split(' ').indexOf(f) > -1;
                 c.classList.toggle('hide', !show);
+            });
+        });
+    }
+
+    /* A project can name a real screenshot via `thumb` (a base path, no
+       extension, e.g. "src/seashark_ui"). If the file exists it replaces the
+       decorative glyph; if not, the glyph stays and nothing else changes. */
+    function loadProjectThumbs() {
+        D.projects.forEach(p => {
+            if (!p.thumb) return;
+            const id = 'thumb-' + p.title.replace(/[^a-z0-9]/gi, '');
+            const el = document.getElementById(id);
+            if (!el) return;
+            resolveImage(p.thumb).then(url => {
+                if (!url) return;
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = p.title;
+                img.className = 'project-thumb-img zoomable';
+                el.appendChild(img);
+                el.classList.add('has-photo');
             });
         });
     }
@@ -202,6 +202,10 @@
         $('#experienceTimeline').innerHTML = D.experience.map(x =>
             '<div class="timeline-item fade-up">' +
                 '<div class="timeline-card">' +
+                    (x.photo
+                        ? '<div class="timeline-photo"><img class="zoomable" src="' + esc(x.photo) + '" alt="' + esc(x.role) +
+                          '" onerror="this.closest(\'.timeline-photo\').remove()"></div>'
+                        : '') +
                     '<div class="timeline-head">' +
                         '<div class="timeline-head-top">' +
                             '<h3>' + esc(x.role) + '</h3>' +
@@ -234,6 +238,10 @@
     function renderAwards() {
         $('#awardsGrid').innerHTML = D.awards.map(a =>
             '<article class="award-card fade-up">' +
+                (a.photo
+                    ? '<div class="award-photo"><img class="zoomable" src="' + esc(a.photo) + '" alt="' + esc(a.title) +
+                      '" onerror="this.closest(\'.award-photo\').remove()"></div>'
+                    : '') +
                 '<div class="award-top">' +
                     '<span class="award-medal">' + a.medal + '</span>' +
                     '<span class="award-place">' + esc(a.place) + '</span>' +
@@ -252,7 +260,10 @@
     function renderEducation() {
         $('#educationGrid').innerHTML = D.education.map(e =>
             '<article class="edu-card fade-up">' +
-                '<span class="edu-badge">' + esc(e.badge) + '</span>' +
+                (e.photo
+                    ? '<span class="edu-badge edu-badge-photo"><img class="zoomable" src="' + esc(e.photo) + '" alt="' + esc(e.degree) +
+                      '" onerror="this.parentElement.classList.remove(\'edu-badge-photo\');this.remove()"></span>'
+                    : '<span class="edu-badge">' + esc(e.badge) + '</span>') +
                 '<div class="edu-main">' +
                     '<div class="edu-head"><h3>' + esc(e.degree) + '</h3>' +
                     '<span class="edu-years">' + esc(e.years) + '</span></div>' +
@@ -272,7 +283,13 @@
     function renderCerts() {
         $('#certGrid').innerHTML = D.certifications.map(c =>
             '<article class="cert-card fade-up">' +
-                '<div class="cert-thumb"><span class="cert-emoji">' + c.emoji + '</span></div>' +
+                '<div class="cert-thumb' + (c.photo ? ' has-photo' : '') + '">' +
+                    (c.photo
+                        ? '<img class="cert-thumb-img zoomable" src="' + esc(c.photo) + '" alt="' + esc(c.name) +
+                          '" onerror="this.remove();this.parentElement.classList.remove(\'has-photo\')">'
+                        : '') +
+                    '<span class="cert-emoji">' + c.emoji + '</span>' +
+                '</div>' +
                 '<div class="cert-body">' +
                     '<p class="cert-issuer">' + esc(c.issuer) + (c.date ? ' · ' + esc(c.date) : '') + '</p>' +
                     '<h3>' + esc(c.name) + '</h3>' +
@@ -311,9 +328,56 @@
     }
 
     /* ---------------------------------------------------------------------
+       SECTION BANNERS
+       Tries each extension in turn; hides the banner if no file is found.
+       --------------------------------------------------------------------- */
+    const IMG_EXT = ['jpg', 'png', 'webp', 'jpeg'];
+
+    /* Probe a base path (no extension) against IMG_EXT with a detached Image,
+       so the result does not depend on the element being visible. Resolves
+       to the first URL that actually loads, or null if none do. */
+    function resolveImage(base) {
+        return new Promise(resolve => {
+            let i = 0;
+            const probe = () => {
+                if (i >= IMG_EXT.length) return resolve(null);
+                const url = base + '.' + IMG_EXT[i++];
+                const test = new Image();
+                test.onload = () => resolve(url);
+                test.onerror = probe;
+                test.src = url;
+            };
+            probe();
+        });
+    }
+
+    function findBanner(n) { return resolveImage('src/session_title_' + n); }
+
+    function renderBanners() {
+        (D.sectionImages || []).forEach(item => {
+            const section = document.getElementById(item.section);
+            if (!section) return;
+            const title = section.querySelector('.section-title');
+            if (!title) return;
+
+            findBanner(item.n).then(url => {
+                if (!url) return;
+                const wrap = document.createElement('div');
+                wrap.className = 'section-banner';
+                const img = document.createElement('img');
+                img.alt = item.alt || '';
+                img.src = url;
+                wrap.appendChild(img);
+                title.parentNode.insertBefore(wrap, title);
+                setTimeout(() => wrap.classList.add('loaded'), 30);
+            });
+        });
+    }
+
+    /* ---------------------------------------------------------------------
        NAVIGATION, SPA section switching
        --------------------------------------------------------------------- */
-    const LANDING = ['home', 'about'];
+    const LANDING = ['home'];
 
     function navHTML() {
         return D.navItems.map(n =>
@@ -362,13 +426,6 @@
         });
         $('#navBackdrop').addEventListener('click', closeMobileNav);
 
-        // Scroll cue and any in-page anchor that is not a nav target
-        $('.scroll-cue').addEventListener('click', e => {
-            e.preventDefault();
-            const about = document.getElementById('about');
-            window.scrollTo({ top: about.offsetTop - 60, behavior: 'smooth' });
-        });
-
         window.addEventListener('hashchange', () =>
             showSection(location.hash.replace('#', '')));
 
@@ -387,6 +444,48 @@
         });
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') closeMobileNav();
+        });
+    }
+
+    /* ---------------------------------------------------------------------
+       LIGHTBOX
+       Any <img class="zoomable"> opens full-size on click. Delegated, so it
+       covers images rendered later (project thumbs, timeline photos, etc.)
+       without each renderer needing its own listener.
+       --------------------------------------------------------------------- */
+    function initLightbox() {
+        const box = $('#lightbox');
+        const img = $('#lightboxImg');
+        const caption = $('#lightboxCaption');
+        let lastFocus = null;
+
+        function open(src, alt) {
+            lastFocus = document.activeElement;
+            img.src = src;
+            img.alt = alt || '';
+            caption.textContent = alt || '';
+            box.classList.add('open');
+            box.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('lightbox-lock');
+            $('#lightboxClose').focus();
+        }
+
+        function close() {
+            box.classList.remove('open');
+            box.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('lightbox-lock');
+            img.src = '';
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+
+        document.addEventListener('click', e => {
+            const target = e.target.closest('.zoomable');
+            if (target) { open(target.src, target.alt); return; }
+            if (e.target === box) close();
+        });
+        $('#lightboxClose').addEventListener('click', close);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && box.classList.contains('open')) close();
         });
     }
 
@@ -416,17 +515,19 @@
        --------------------------------------------------------------------- */
     document.addEventListener('DOMContentLoaded', () => {
         renderHero();
-        renderAbout();
         renderProjects();
+        loadProjectThumbs();
         renderSkills();
         renderExperience();
         renderAwards();
         renderEducation();
         renderCerts();
         renderContact();
+        renderBanners();
 
         initNav();
         initTheme();
+        initLightbox();
 
         $('#year').textContent = new Date().getFullYear();
         showSection(location.hash.replace('#', '') || 'home');

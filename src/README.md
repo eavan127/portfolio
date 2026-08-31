@@ -1,13 +1,17 @@
-Drop your images in this folder.
+Drop images in this folder.
 
-Name them in sequence:
+## Section banners
 
-    session_title_1.jpg
-    session_title_2.jpg
-    session_title_3.jpg
-    session_title_4.jpg
-    session_title_5.jpg
+    session_title_1.jpg   My Expertise
+    session_title_2.jpg   Projects
+    session_title_3.jpg   Skills
+    session_title_4.jpg   Experience
+    session_title_5.jpg   Awards and Honours
 
-.png and .webp work too. Once you confirm where they should appear, the
-paths get wired into resources/data.js and every slot falls back safely if a
-file is missing.
+## Project screenshots
+
+    seashark_ui.jpg   Sea Shark project card (the OOP game UI screenshot)
+
+Any of .jpg / .png / .webp / .jpeg works for every slot above. A missing
+file falls back cleanly: banners insert nothing, seashark_ui falls back to
+the default icon. Nothing breaks either way.

@@ -30,13 +30,12 @@
 
             <a href="#home" class="nav-brand" data-nav="home" aria-label="Eavan Tan, Home">
                 <div class="nav-brand-avatar">
-                    <img src="resources/assets/hero/profile.jpg" alt="Eavan Tan"
+                    <img src="resources/assets/hero/home/profile.jpg" alt="Eavan Tan"
                         onerror="this.closest('.nav-brand-avatar').classList.add('is-fallback')">
                     <span class="avatar-fallback">ET</span>
                 </div>
                 <div class="nav-brand-text">
                     <span class="nav-brand-name">EAVAN TAN</span>
-                    <span class="nav-brand-role">AI / ML Engineer</span>
                 </div>
             </a>
 
@@ -92,27 +91,14 @@
 
                 <div class="hero-visuals-wrapper">
                     <div class="hero-image-container" id="heroImageContainer">
-                        <img src="resources/assets/hero/profile.jpg" alt="Eavan Tan"
+                        <img class="zoomable" src="resources/assets/hero/home/profile.jpg" alt="Eavan Tan"
                             onerror="this.closest('.hero-image-container').classList.add('is-fallback')">
                         <div class="hero-image-fallback">
                             <span>ET</span>
-                            <small>resources/assets/hero/profile.jpg</small>
+                            <small>resources/assets/hero/home/profile.jpg</small>
                         </div>
                     </div>
-                    <div class="hero-badges" id="heroBadges"></div>
                 </div>
-            </div>
-
-            <a class="scroll-cue" href="#about" aria-label="Scroll to expertise">
-                <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-            </a>
-        </section>
-
-        <!-- ============ ABOUT / EXPERTISE ============ -->
-        <section id="about" class="section about-redesign active-section">
-            <div class="container">
-                <h2 class="section-title fade-up">My Expertise</h2>
-                <div class="knowledge-container" id="knowledgeContainer"></div>
             </div>
         </section>
 
@@ -206,6 +192,17 @@
             <div class="footer-socials" id="footerSocials"></div>
         </div>
     </footer>
+
+    <!-- ============ LIGHTBOX ============ -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image preview">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+            <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <figure class="lightbox-frame">
+            <img id="lightboxImg" src="" alt="">
+            <figcaption id="lightboxCaption"></figcaption>
+        </figure>
+    </div>
 
     <script src="resources/data.js"></script>
     <script src="resources/script.js"></script>
