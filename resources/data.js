@@ -85,7 +85,7 @@ const portfolioData = {
             video: "https://drive.google.com/file/d/1XTl0zifoSe-c_xH7gd8MerCS0Oo6nDJ7/view"
         },
         {
-            cats: ["ai", "cv"], glyph: "camera",
+            cats: ["ai", "cv"], glyph: "camera", thumb: "resources/assets/hero/projects/PawSecure",
             title: "PawSecure: AI Stray Animal Rescue Platform",
             sub: "Production rebuild of the KitaHack 2026 entry",
             date: "May 2026", award: null,
