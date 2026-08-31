@@ -311,6 +311,51 @@
     }
 
     /* ---------------------------------------------------------------------
+       SECTION BANNERS
+       Tries each extension in turn; hides the banner if no file is found.
+       --------------------------------------------------------------------- */
+    const BANNER_EXT = ['jpg', 'png', 'webp', 'jpeg'];
+
+    /* Probe each extension with a detached Image so the result does not depend
+       on the section being visible. Only a file that actually resolves gets
+       inserted into the page. */
+    function findBanner(n) {
+        return new Promise(resolve => {
+            let i = 0;
+            const probe = () => {
+                if (i >= BANNER_EXT.length) return resolve(null);
+                const url = 'src/session_title_' + n + '.' + BANNER_EXT[i++];
+                const test = new Image();
+                test.onload = () => resolve(url);
+                test.onerror = probe;
+                test.src = url;
+            };
+            probe();
+        });
+    }
+
+    function renderBanners() {
+        (D.sectionImages || []).forEach(item => {
+            const section = document.getElementById(item.section);
+            if (!section) return;
+            const title = section.querySelector('.section-title');
+            if (!title) return;
+
+            findBanner(item.n).then(url => {
+                if (!url) return;
+                const wrap = document.createElement('div');
+                wrap.className = 'section-banner';
+                const img = document.createElement('img');
+                img.alt = item.alt || '';
+                img.src = url;
+                wrap.appendChild(img);
+                title.parentNode.insertBefore(wrap, title);
+                setTimeout(() => wrap.classList.add('loaded'), 30);
+            });
+        });
+    }
+
+    /* ---------------------------------------------------------------------
        NAVIGATION, SPA section switching
        --------------------------------------------------------------------- */
     const LANDING = ['home', 'about'];
@@ -424,6 +469,7 @@
         renderEducation();
         renderCerts();
         renderContact();
+        renderBanners();
 
         initNav();
         initTheme();

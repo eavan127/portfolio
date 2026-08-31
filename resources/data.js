@@ -552,6 +552,20 @@ const portfolioData = {
         { emoji: "💰", issuer: "Financial Education for Youth", date: "", name: "Certificate of Participation", note: "Personal finance and financial literacy foundations", link: null }
     ],
 
+    /* ---------------- Section banner images ----------------
+       Files live in src/ and are numbered by the order the sections appear
+       on the page. Each slot tries .jpg, then .png, then .webp; if none of
+       them exist the banner hides itself and the section is unaffected.
+
+       To move an image to a different section, change the "section" value.  */
+    sectionImages: [
+        { n: 1, section: "about",          alt: "My Expertise" },
+        { n: 2, section: "projects",       alt: "Projects" },
+        { n: 3, section: "skills",         alt: "Technical Skills" },
+        { n: 4, section: "experience",     alt: "Experience" },
+        { n: 5, section: "awards",         alt: "Awards and Honours" }
+    ],
+
     navItems: [
         { id: "home", label: "Home", icon: "home" },
         { id: "projects", label: "Projects", icon: "folder" },
