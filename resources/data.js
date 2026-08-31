@@ -7,29 +7,23 @@ const portfolioData = {
 
     /* ---------------- Personal ---------------- */
     name: "EAVAN TAN",
-    role: "AI / ML Engineer",
-    microline: "RAG & LLM Pipelines | Computer Vision | Deep Learning | VR | Full-Stack",
+    role: "Internship Seeker, May to Dec 2027",
+    microline: "PETRONAS Scholar | Bachelor of Computer Science | Universiti Teknologi PETRONAS",
     heroImage: "resources/assets/hero/home/profile.jpg",
     resumeLink: "resources/assets/docs/Eavan_Tan_Resume.pdf",
-    email: "evan17tan@gmail.com",
+    email: "eavan_24006152@utp.edu.my",
 
     bio: [
-        "Turn slow manual workflows into AI pipelines, taking <strong>12.5 hours down to 15 minutes</strong>.",
-        "Train and fine-tune vision models on real, messy, self-labelled data.",
-        "Design retrieval systems that know when <strong>not</strong> to answer.",
-        "Lead cross-disciplinary teams of up to six to competition finals."
-    ],
-
-    heroBadges: [
-        { value: "3.93", label: "CGPA" },
-        { value: "3", label: "Competition podiums" },
-        { value: "98%", label: "Runtime cut, NEXA" }
+        "Built an AI pipeline that cut a customs-classification workflow from <strong>12.5 hours to about 15 minutes</strong>.",
+        "Fine-tuned computer vision models on real, self-labelled data for a stray-animal detection project.",
+        "Built a retrieval-based translation system for a low-resource dialect pair as an independent project.",
+        "Led student teams of up to six through university and international-level competitions."
     ],
 
     socialLinks: {
         linkedin: "https://www.linkedin.com/in/eavan-tan-a13785324",
         github: "https://github.com/eavan127",
-        email: "mailto:evan17tan@gmail.com"
+        email: "mailto:eavan_24006152@utp.edu.my"
     },
 
     contactIntro:
@@ -37,52 +31,11 @@ const portfolioData = {
         "Based in Perak, Malaysia.",
 
     contactLinks: [
-        { icon: "mail", label: "Personal email", value: "evan17tan@gmail.com", href: "mailto:evan17tan@gmail.com" },
         { icon: "school", label: "University email", value: "eavan_24006152@utp.edu.my", href: "mailto:eavan_24006152@utp.edu.my" },
         { icon: "phone", label: "Phone", value: "+60 10-505-1219", href: "tel:+60105051219" },
         { icon: "linkedin", label: "LinkedIn", value: "linkedin.com/in/eavan-tan-a13785324", href: "https://www.linkedin.com/in/eavan-tan-a13785324" },
         { icon: "github", label: "GitHub", value: "github.com/eavan127", href: "https://github.com/eavan127" }
     ],
-
-    /* ---------------- My Expertise ---------------- */
-    about: {
-        domains: [
-            {
-                title: "AI / ML Engineering",
-                glyph: "neural",
-                icons: ["cpu", "database", "search", "shield", "code"],
-                bullets: [
-                    "Built retrieval-augmented pipelines with embedding search, confidence gating and role-based agents.",
-                    "Cut a customs-classification workflow from <strong>12.5 hours to about 15 minutes</strong> while raising accuracy.",
-                    "Hardened LLM services with circuit breakers against model outages and prompt-injection attempts.",
-                    "Designed <strong>confidence-governed rejection</strong> so systems decline rather than hallucinate."
-                ]
-            },
-            {
-                title: "Computer Vision & Deep Learning",
-                glyph: "vision",
-                icons: ["camera", "layers", "activity", "grid", "check-circle"],
-                bullets: [
-                    "Fine-tuned a <strong>YOLO11 detector on 4,168 self-labelled images</strong> for real-time CCTV detection.",
-                    "Built ResNet18 512-dimension embeddings with pgvector similarity search for animal re-identification.",
-                    "Designed a dual-branch CNN from scratch over raw RF signals, because <strong>no pretrained backbone exists</strong>.",
-                    "Trained multi-label classifiers where several classes can be true in the same window at once.",
-                    "Locked model behaviour behind <strong>104 passing tests</strong> before touching real data."
-                ]
-            },
-            {
-                title: "Product & Team Delivery",
-                glyph: "team",
-                icons: ["users", "server", "layout", "git-branch", "award"],
-                bullets: [
-                    "Led a <strong>six-member team</strong> to the Middle East Regional Final of an international competition.",
-                    "Shipped end-to-end products: FastAPI backends, Supabase/Postgres schemas, React and Unity front ends.",
-                    "Delivered under hackathon deadlines: <strong>three podium finishes in a single year</strong>.",
-                    "Hold logistics, secretarial and speaking roles across university and ASEAN-level organisations."
-                ]
-            }
-        ]
-    },
 
     /* ---------------- Projects ---------------- */
     projectFilters: [
@@ -359,6 +312,7 @@ const portfolioData = {
             soft: ["Team Leadership", "International Collaboration", "Pitching", "Project Direction", "Working Under Pressure"]
         },
         {
+            photo: "resources/assets/hero/experience/AI ready master trainer.png",
             role: "Speaker, AI Ready ASEAN Master Training",
             org: "UTP-ASEAN Student Association",
             when: "Nov 2025 to Present", type: "Speaker",
@@ -367,12 +321,13 @@ const portfolioData = {
             soft: ["Public Speaking", "Teaching", "Facilitation", "Technical Communication"]
         },
         {
-            role: "Secretary and Logistics Supervisor, ASEAN Student Forum 2026",
-            org: "UTP-ASEAN Student Association",
-            when: "Aug 2025 to Present", type: "Dual role",
-            metrics: ["2 concurrent roles"],
-            desc: "Hold dual roles: managing meeting documentation, minutes and internal coordination as Secretary, while supervising logistics planning, venue preparation and resourcing for forum activities.",
-            soft: ["Organisation", "Documentation", "Supervision", "Multi-role Time Management"]
+            photo: "resources/assets/hero/experience/Assistant_CNP.png",
+            role: "Assistant Head, Ceremony and Protocol Department (CNP)",
+            org: "ASEAN Student Forum 2025, UTP-ASEAN Student Association",
+            when: "Jan 2025 to Aug 2025", type: "Leadership",
+            metrics: ["8 months"],
+            desc: "Supported ceremony planning and protocol coordination for ASEAN Student Forum 2025 events, including the ASF 2025 Family Day.",
+            soft: ["Event Coordination", "Protocol Planning", "Teamwork"]
         },
         {
             role: "Monitoring & Evaluation Officer",
@@ -383,6 +338,7 @@ const portfolioData = {
             soft: ["Analytical Thinking", "Data Organisation", "Reporting", "Feedback Collection"]
         },
         {
+            photo: "resources/assets/hero/experience/OMC_leader.png",
             role: "Team Leader, OH MY CODE 16.0 Group 13",
             org: "Universiti Teknologi PETRONAS",
             when: "Jul 2025", type: "Team Lead",
@@ -391,6 +347,7 @@ const portfolioData = {
             soft: ["Leadership", "Delegation", "Technical Execution", "Deadline Management"]
         },
         {
+            photo: "resources/assets/hero/experience/emcee.png",
             role: "Emcee, PETRONAS SECURE NEX Hackathon 2025",
             org: "UTP SYNTECH",
             when: "Aug 2025", type: "Emcee",
@@ -399,6 +356,7 @@ const portfolioData = {
             soft: ["Public Speaking", "Composure", "Live Coordination", "Stakeholder Communication"]
         },
         {
+            photo: "resources/assets/hero/experience/Down to Earth.png",
             role: "Head of Facilitators Department, Down To Earth 2024",
             org: "Universiti Teknologi PETRONAS · SJK(C) Chung Sun",
             when: "Sep to Nov 2024", type: "Leadership",
@@ -407,6 +365,7 @@ const portfolioData = {
             soft: ["Team Management", "Programme Design", "Community Engagement", "Adaptability"]
         },
         {
+            photo: "resources/assets/hero/experience/blackberry_visit.png",
             role: "Member & Industrial Visit Participant",
             org: "CYBERHAX UTP",
             when: "Sep 2024 to Present", type: "Member",
@@ -415,6 +374,7 @@ const portfolioData = {
             soft: ["Continuous Learning", "Security Awareness", "Peer Collaboration", "Industry Exposure"]
         },
         {
+            photo: "resources/assets/hero/experience/RISE social_personal.png",
             role: "Engagement Committee, RISE Social Practice Programme 2025",
             org: "with Tsinghua University, China",
             when: "Jan 2025", type: "Committee",
@@ -423,6 +383,7 @@ const portfolioData = {
             soft: ["Cross-cultural Communication", "CSR Planning", "Diplomacy"]
         },
         {
+            photo: "resources/assets/hero/experience/CSR_orphanage.png",
             role: "Volunteer Committee, CSR Orphanage Programme",
             org: "The Salvation Army, Ipoh",
             when: "Feb 2025", type: "Volunteer",
@@ -431,6 +392,7 @@ const portfolioData = {
             soft: ["Empathy", "Cross-cultural Teamwork", "Social Responsibility", "Initiative"]
         },
         {
+            photo: "resources/assets/hero/experience/adjudication.png",
             role: "Adjudication Committee",
             org: "10th Northern Malaysia Mandarin Debate Tournament",
             when: "Dec 2024 to May 2025", type: "Committee",
@@ -439,6 +401,7 @@ const portfolioData = {
             soft: ["Impartiality", "Process Coordination", "Attention to Detail", "Conflict Handling"]
         },
         {
+            photo: "resources/assets/hero/experience/media_committee.png",
             role: "Media Committee and Ruan Chamber Member",
             org: "UTPCO Chinese Orchestra, UTP",
             when: "Jan 2025 to Present", type: "Committee",
@@ -479,13 +442,14 @@ const portfolioData = {
         },
         {
             medal: "🏅", place: "Excellence",
-            photo: "resources/assets/hero/awards/foundation.png",
+            photo: "resources/assets/hero/awards/student_excellence.png",
             title: "Foundation 4.0 Excellence Award",
             org: "Universiti Teknologi PETRONAS", when: "2025",
             desc: "Awarded for achieving a perfect 4.00 grade point average across the Foundation in Computer Science programme."
         },
         {
             medal: "🎖️", place: "Distinction",
+            photo: "resources/assets/hero/awards/firstclass.png",
             title: "Foundation First Class Award",
             org: "Universiti Teknologi PETRONAS", when: "2025",
             desc: "First Class distinction on completion of the Foundation programme, recognising sustained academic performance across the full year."
@@ -496,6 +460,7 @@ const portfolioData = {
     education: [
         {
             badge: "UTP",
+            photo: "resources/assets/hero/educations/UTP_bachelor.png",
             degree: "Bachelor of Computer Science",
             years: "2025 to 2028",
             institution: "Universiti Teknologi PETRONAS, Perak, Malaysia",
@@ -530,16 +495,21 @@ const portfolioData = {
 
     /* ---------------- Certifications ---------------- */
     certifications: [
-        { emoji: "☁️", issuer: "Microsoft", date: "", name: "Azure AI Fundamentals (AI-900)", note: "Core AI, ML and cognitive services on Azure", link: null },
-        { emoji: "🧠", issuer: "Stanford University / Coursera", date: "", name: "Supervised Machine Learning: Regression and Classification", note: "Gradient descent, regularisation, model evaluation", link: null },
-        { emoji: "✨", issuer: "Google Cloud", date: "", name: "Introduction to Generative AI", note: "Foundation models, prompt design and responsible use", link: null },
-        { emoji: "🖼️", issuer: "Google Cloud", date: "", name: "Creating Image Captioning Models", note: "Encoder and decoder architectures with attention", link: null },
-        { emoji: "🤖", issuer: "Amazon Web Services", date: "", name: "Introduction to Robotics", note: "Robotics fundamentals and simulation workflows", link: null },
+        { emoji: "☁️", photo: "resources/assets/hero/certifications/microsoft_azure.png", issuer: "Microsoft", date: "", name: "Azure AI Fundamentals (AI-900)", note: "Core AI, ML and cognitive services on Azure", link: null },
+        { emoji: "🧠", photo: "resources/assets/hero/certifications/supervised.png", issuer: "Stanford University / Coursera", date: "", name: "Supervised Machine Learning: Regression and Classification", note: "Gradient descent, regularisation, model evaluation", link: null },
+        { emoji: "✨", photo: "resources/assets/hero/certifications/introduction to generatiive AI.png", issuer: "Google Cloud", date: "", name: "Introduction to Generative AI", note: "Foundation models, prompt design and responsible use", link: null },
+        { emoji: "🖼️", photo: "resources/assets/hero/certifications/image_captioning.png", issuer: "Google Cloud", date: "", name: "Creating Image Captioning Models", note: "Encoder and decoder architectures with attention", link: null },
+        { emoji: "🤖", photo: "resources/assets/hero/certifications/AWS_robotics.png", issuer: "Amazon Web Services", date: "", name: "Introduction to Robotics", note: "Robotics fundamentals and simulation workflows", link: null },
         { emoji: "🗣️", issuer: "Oxford University Press", date: "", name: "Oxford Online Placement Test, Grade C1", note: "Advanced English proficiency", link: null },
-        { emoji: "🏆", issuer: "Jabil ECP Bootcamp", date: "2026", name: "1st Place Certificate of Achievement", note: "Champion, AI & Data Innovation track", link: null },
-        { emoji: "🥈", issuer: "AWS × UTP GenAI Hackathon", date: "2026", name: "1st Runner-Up Certificate of Achievement", note: "Silver, multi-agent AI on Amazon Bedrock", link: null },
-        { emoji: "⚖️", issuer: "Northern Malaysia Mandarin Debate", date: "2025", name: "Adjudication Committee Certificate", note: "Judging workflow and evaluation coordination", link: null },
-        { emoji: "💰", issuer: "Financial Education for Youth", date: "", name: "Certificate of Participation", note: "Personal finance and financial literacy foundations", link: null }
+        { emoji: "🏆", photo: "resources/assets/hero/certifications/jabil.png", issuer: "Jabil ECP Bootcamp", date: "2026", name: "1st Place Certificate of Achievement", note: "Champion, AI & Data Innovation track", link: null },
+        { emoji: "🥈", photo: "resources/assets/hero/certifications/AWS.jpg", issuer: "AWS × UTP GenAI Hackathon", date: "2026", name: "1st Runner-Up Certificate of Achievement", note: "Silver, multi-agent AI on Amazon Bedrock", link: null },
+        { emoji: "⚖️", photo: "resources/assets/hero/certifications/adjudication.png", issuer: "Northern Malaysia Mandarin Debate", date: "2025", name: "Adjudication Committee Certificate", note: "Judging workflow and evaluation coordination", link: null },
+        { emoji: "💰", photo: "resources/assets/hero/certifications/financial.png", issuer: "Financial Education for Youth", date: "", name: "Certificate of Participation", note: "Personal finance and financial literacy foundations", link: null },
+        { emoji: "🎹", photo: "resources/assets/hero/certifications/Piano Grade 7.jpg", issuer: "Trinity College London", date: "", name: "Trinity Grade 7 (Piano)", note: "Music theory and performance examination", link: null },
+        { emoji: "💻", photo: "resources/assets/hero/certifications/OMC.png", issuer: "OH MY CODE 16.0, Universiti Teknologi PETRONAS", date: "2025", name: "Certificate of Achievement", note: "Scored 14.63 / 15 in the coursework competition", link: null },
+        { emoji: "🛠️", photo: "resources/assets/hero/certifications/robotics_workshop1.png", issuer: "UTP SYNTECH Organization", date: "2025", name: "Road to ROBOCON Workshop", note: "Robotics project planning and competition readiness", link: null },
+        { emoji: "⚡", photo: "resources/assets/hero/certifications/Godamlah_hackathon.png", issuer: "GodamLah! Hackathon", date: "", name: "Certificate of Participation", note: "Hackathon participation", link: null },
+        { emoji: "🚀", photo: "resources/assets/hero/certifications/Kolaxus_hackathon.png", issuer: "Kolaxus Hackathon", date: "", name: "Certificate of Participation", note: "Hackathon participation", link: null }
     ],
 
     /* ---------------- Section banner images ----------------
@@ -549,7 +519,6 @@ const portfolioData = {
 
        To move an image to a different section, change the "section" value.  */
     sectionImages: [
-        { n: 1, section: "about",          alt: "My Expertise" },
         { n: 2, section: "projects",       alt: "Projects" },
         { n: 3, section: "skills",         alt: "Technical Skills" },
         { n: 4, section: "experience",     alt: "Experience" },

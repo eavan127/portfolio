@@ -62,12 +62,6 @@
         return '<svg viewBox="0 0 24 24" aria-hidden="true">' + (PATHS[name] || PATHS.grid) + '</svg>';
     }
 
-    const KV_GLYPH = {
-        neural: '<circle cx="5" cy="6" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="5" cy="18" r="1.6"/><circle cx="12" cy="9" r="1.6"/><circle cx="12" cy="15" r="1.6"/><circle cx="19" cy="12" r="1.6"/><path d="M6.5 6.6 10.6 8.5M6.5 11.6l4.1-2M6.5 12.5l4.1 2M6.5 17.4l4.1-1.9M13.5 9.4l4 2M13.5 14.5l4-2"/>',
-        vision: '<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3.2"/><path d="M12 4V2M12 22v-2M4 6 2.5 4.5M20 6l1.5-1.5"/>',
-        team: '<circle cx="12" cy="6" r="2.6"/><circle cx="5.5" cy="17" r="2.6"/><circle cx="18.5" cy="17" r="2.6"/><path d="M12 8.6v3.9M12 12.5 6.9 15.2M12 12.5l5.1 2.7"/>'
-    };
-
     /* ---------------------------------------------------------------------
        HERO
        --------------------------------------------------------------------- */
@@ -76,10 +70,6 @@
         $('#heroRole').innerHTML = D.role;
         $('#heroMicroline').textContent = D.microline;
         $('#heroBio').innerHTML = D.bio.map(b => '<p>' + b + '</p>').join('');
-
-        $('#heroBadges').innerHTML = D.heroBadges.map(b =>
-            '<div class="hero-badge"><strong>' + esc(b.value) + '</strong><span>' + esc(b.label) + '</span></div>'
-        ).join('');
 
         const s = D.socialLinks;
         $('#heroSocials').innerHTML =
@@ -102,27 +92,6 @@
     function fsocial(href, ic, label) {
         return '<a href="' + esc(href) + '" target="_blank" rel="noopener" aria-label="' + esc(label) + '">' +
             icon(ic) + '</a>';
-    }
-
-    /* ---------------------------------------------------------------------
-       ABOUT / EXPERTISE
-       --------------------------------------------------------------------- */
-    function renderAbout() {
-        $('#knowledgeContainer').innerHTML = D.about.domains.map(d =>
-            '<div class="knowledge-row fade-up">' +
-                '<div class="knowledge-visual">' +
-                    '<svg class="kv-glyph" viewBox="0 0 24 24" aria-hidden="true">' +
-                    (KV_GLYPH[d.glyph] || KV_GLYPH.neural) + '</svg>' +
-                '</div>' +
-                '<div class="knowledge-content">' +
-                    '<h3>' + esc(d.title) + '</h3>' +
-                    '<div class="knowledge-icons">' + d.icons.map(i => icon(i, '')).join('') + '</div>' +
-                    '<ul class="knowledge-bullets">' +
-                        d.bullets.map(b => '<li>' + b + '</li>').join('') +
-                    '</ul>' +
-                '</div>' +
-            '</div>'
-        ).join('');
     }
 
     /* ---------------------------------------------------------------------
@@ -232,6 +201,10 @@
         $('#experienceTimeline').innerHTML = D.experience.map(x =>
             '<div class="timeline-item fade-up">' +
                 '<div class="timeline-card">' +
+                    (x.photo
+                        ? '<div class="timeline-photo"><img src="' + esc(x.photo) + '" alt="' + esc(x.role) +
+                          '" onerror="this.closest(\'.timeline-photo\').remove()"></div>'
+                        : '') +
                     '<div class="timeline-head">' +
                         '<div class="timeline-head-top">' +
                             '<h3>' + esc(x.role) + '</h3>' +
@@ -309,7 +282,13 @@
     function renderCerts() {
         $('#certGrid').innerHTML = D.certifications.map(c =>
             '<article class="cert-card fade-up">' +
-                '<div class="cert-thumb"><span class="cert-emoji">' + c.emoji + '</span></div>' +
+                '<div class="cert-thumb' + (c.photo ? ' has-photo' : '') + '">' +
+                    (c.photo
+                        ? '<img class="cert-thumb-img" src="' + esc(c.photo) + '" alt="' + esc(c.name) +
+                          '" onerror="this.remove();this.parentElement.classList.remove(\'has-photo\')">'
+                        : '') +
+                    '<span class="cert-emoji">' + c.emoji + '</span>' +
+                '</div>' +
                 '<div class="cert-body">' +
                     '<p class="cert-issuer">' + esc(c.issuer) + (c.date ? ' · ' + esc(c.date) : '') + '</p>' +
                     '<h3>' + esc(c.name) + '</h3>' +
@@ -397,7 +376,7 @@
     /* ---------------------------------------------------------------------
        NAVIGATION, SPA section switching
        --------------------------------------------------------------------- */
-    const LANDING = ['home', 'about'];
+    const LANDING = ['home'];
 
     function navHTML() {
         return D.navItems.map(n =>
@@ -449,8 +428,8 @@
         // Scroll cue and any in-page anchor that is not a nav target
         $('.scroll-cue').addEventListener('click', e => {
             e.preventDefault();
-            const about = document.getElementById('about');
-            window.scrollTo({ top: about.offsetTop - 60, behavior: 'smooth' });
+            const target = document.getElementById('projects');
+            window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
         });
 
         window.addEventListener('hashchange', () =>
@@ -500,7 +479,6 @@
        --------------------------------------------------------------------- */
     document.addEventListener('DOMContentLoaded', () => {
         renderHero();
-        renderAbout();
         renderProjects();
         loadProjectThumbs();
         renderSkills();
