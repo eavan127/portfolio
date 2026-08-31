@@ -69,7 +69,7 @@
        --------------------------------------------------------------------- */
     function renderHero() {
         $('#heroName').textContent = D.name;
-        $('#heroRole').textContent = D.role;
+        $('#heroRole').innerHTML = D.role;
         $('#heroMicroline').textContent = D.microline;
         $('#heroBio').innerHTML = D.bio.map(b => '<p>' + b + '</p>').join('');
 

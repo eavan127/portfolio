@@ -532,8 +532,8 @@ const portfolioData = {
             years: "2019 — 2023",
             institution: "SM Sung Siew, Sabah, Malaysia",
             chips: [
-                { text: "Full Science Stream", alt: false },
-                { text: "Physics, Chemistry, Biology, Additional Mathematics", alt: true }
+                { text: "9A — 5A+, 4A, 1B", alt: false },
+                { text: "Full Science Stream", alt: true }
             ]
         }
     ],
@@ -554,6 +554,7 @@ const portfolioData = {
 
     /* ---------------- Palettes ---------------- */
     palettes: [
+        { id: "bone", name: "Bone & Terracotta", note: "Warm ivory against near-black with one restrained clay accent. The editorial choice.", sw: ["#080808", "#F1F0EC", "#BD5D3F", "#D7D5CF"] },
         { id: "emerald", name: "Emerald & Antique Gold", note: "Heritage luxury — established and serious.", sw: ["#0B2E22", "#0F5132", "#C9A227", "#E4CF8A"] },
         { id: "sapphire", name: "Midnight Sapphire & Ice", note: "Corporate-tech confidence. Safest with recruiters.", sw: ["#0C1B33", "#1B3A6B", "#4C8BF5", "#9FC1FA"] },
         { id: "burgundy", name: "Burgundy & Champagne", note: "Editorial warmth — distinctive and mature.", sw: ["#3B0F22", "#6B1F3A", "#B9873F", "#E3C89B"] },

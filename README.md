@@ -42,6 +42,7 @@ remembered in `localStorage`. Each has a matching dark variant.
 
 | id | Combination |
 |----|-------------|
+| `bone`     | Bone & Terracotta *(default)* |
 | `emerald`  | Emerald & Antique Gold |
 | `sapphire` | Midnight Sapphire & Ice Blue |
 | `burgundy` | Burgundy & Champagne |
@@ -50,9 +51,22 @@ remembered in `localStorage`. Each has a matching dark variant.
 | `graphite` | Graphite & Cyan |
 
 To lock one in as the default, change the fallback in the inline script at the
-top of `index.html` (`localStorage.getItem('palette') || 'emerald'`). To remove
+top of `index.html` (`localStorage.getItem('palette') || 'bone'`). To remove
 the switcher entirely, delete the `#paletteToggle` button and the `#palettePop`
 block from `index.html`.
+
+## Typography
+
+Two faces, both from Google Fonts:
+
+- **Anton** — display only. Used for the hero name and section titles, nowhere
+  else. It has a single weight; do not ask it for bold or italic.
+- **Outfit** — everything else, weights 200-800.
+- **JetBrains Mono** — dates and numeric metadata only.
+
+Headings are real text in a real typeface. Do not substitute Unicode
+"special text" characters (𝐄𝐚𝐯𝐚𝐧, ᴇᴀᴠᴀɴ): they break Ctrl+F, screen readers,
+and recruiter ATS parsing, and they render inconsistently across platforms.
 
 ## Local preview
 

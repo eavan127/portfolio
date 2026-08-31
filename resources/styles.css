@@ -9,6 +9,26 @@
    -------------------------------------------------------------------------- */
 
 :root,
+[data-palette="bone"] {
+    --bg-primary: #F1F0EC;
+    --bg-secondary: #E9E7E1;
+    --text-primary: #080808;
+    --text-secondary: #5F5C55;
+    --accent: #1A1A1A;
+    --accent-hover: #000000;
+    --accent-secondary: #BD5D3F;
+    --accent-secondary-hover: #9E4830;
+    --soft-accent: #E4E1D9;
+    --card-bg: #F8F7F4;
+    --glass-border: rgba(8, 8, 8, 0.11);
+    --navbar-bg: rgba(241, 240, 236, 0.82);
+    --navbar-bg-scrolled: rgba(241, 240, 236, 0.95);
+    --pill-bg: rgba(8, 8, 8, 0.04);
+    --btn-text: #F1F0EC;
+    --accent-rgb: 26, 26, 26;
+    --accent2-rgb: 189, 93, 63;
+}
+
 [data-palette="emerald"] {
     --bg-primary: #FFFFFF;
     --bg-secondary: #FAFAF8;
@@ -148,8 +168,28 @@
     --btn-text: #0A0C0B;
 }
 
-[data-theme="dark"][data-palette="emerald"],
+[data-theme="dark"][data-palette="bone"],
 [data-theme="dark"]:not([data-palette]) {
+    --bg-primary: #080808;
+    --bg-secondary: #101010;
+    --card-bg: #151515;
+    --navbar-bg: rgba(8, 8, 8, 0.82);
+    --navbar-bg-scrolled: rgba(8, 8, 8, 0.95);
+    --text-primary: #F1F0EC;
+    --text-secondary: #908D86;
+    --glass-border: rgba(241, 240, 236, 0.12);
+    --pill-bg: rgba(241, 240, 236, 0.05);
+    --accent: #F1F0EC;
+    --accent-hover: #FFFFFF;
+    --accent-secondary: #D97A56;
+    --accent-secondary-hover: #E89673;
+    --soft-accent: #1A1A1A;
+    --btn-text: #080808;
+    --accent-rgb: 241, 240, 236;
+    --accent2-rgb: 217, 122, 86;
+}
+
+[data-theme="dark"][data-palette="emerald"] {
     --accent: #C9A227;
     --accent-hover: #E0BC48;
     --accent-secondary: #4CAF7D;
@@ -258,7 +298,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -267,7 +307,16 @@ body {
     transition: background 0.4s ease, color 0.4s ease;
 }
 
-h1, h2, h3, h4 { font-family: 'Outfit', 'Inter', sans-serif; line-height: 1.2; }
+h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; line-height: 1.2; }
+
+/* Display face — reserved for the two largest moments on the page:
+   the hero name and each section title. Anton only has one weight. */
+.display {
+    font-family: 'Anton', 'Outfit', Impact, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+}
 
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
@@ -486,16 +535,19 @@ ul { list-style: none; }
 .hero-section.active-section { display: flex; }
 
 .section-title {
-    font-size: 2rem; font-weight: 700; text-align: center;
-    margin: 0 auto 8px; color: var(--text-primary);
+    font-family: 'Anton', 'Outfit', Impact, sans-serif;
+    font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+    font-weight: 400; text-transform: uppercase;
+    letter-spacing: -0.01em; line-height: 0.98;
+    text-align: center; margin: 0 auto 8px; color: var(--text-primary);
 }
 .section-title::after {
-    content: ''; display: block; width: 48px; height: 3px;
-    background: var(--accent); border-radius: 2px; margin: 8px auto 0;
+    content: ''; display: block; width: 56px; height: 2px;
+    background: var(--accent-secondary); margin: 18px auto 0;
 }
 .section-subtitle {
     text-align: center; color: var(--text-secondary);
-    font-size: 0.9rem; margin: 14px auto 0; max-width: 60ch;
+    font-size: 0.92rem; font-weight: 300; margin: 16px auto 0; max-width: 60ch;
 }
 
 .fade-up { opacity: 0; transform: translateY(24px); transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
@@ -526,20 +578,26 @@ ul { list-style: none; }
 }
 
 .hero-hello {
-    font-size: 1.05rem; font-weight: 600; color: var(--accent-secondary);
-    margin-bottom: 4px;
+    font-size: 0.75rem; font-weight: 600; color: var(--accent-secondary);
+    letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 14px;
 }
 .hero-name {
-    font-size: 3.9rem; font-weight: 800; letter-spacing: -2px; word-spacing: 6px;
-    line-height: 1.05; color: var(--text-primary); margin-bottom: 6px;
+    font-family: 'Anton', 'Outfit', Impact, sans-serif;
+    font-size: clamp(3.2rem, 6.4vw, 5.6rem);
+    font-weight: 400; text-transform: uppercase;
+    letter-spacing: -0.015em; word-spacing: 4px;
+    line-height: 0.94; color: var(--text-primary); margin-bottom: 10px;
 }
 .hero-role {
-    font-size: 1.5rem; font-weight: 600; color: var(--accent);
-    letter-spacing: 0.2px; margin-bottom: 8px;
+    font-size: 1.55rem; font-weight: 300; color: var(--text-primary);
+    letter-spacing: -0.01em; margin-bottom: 10px;
+}
+.hero-role em {
+    font-style: italic; font-weight: 300; color: var(--accent-secondary);
 }
 .hero-microline {
-    font-size: 0.78rem; letter-spacing: 0.6px; text-transform: uppercase;
-    color: var(--text-secondary); margin-bottom: 22px;
+    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500; color: var(--text-secondary); margin-bottom: 26px;
 }
 .hero-bio { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
 .hero-bio p {
@@ -567,9 +625,10 @@ ul { list-style: none; }
     display: grid; place-items: center; flex-shrink: 0; color: #fff;
 }
 .social-pill .pill-ico svg { width: 15px; height: 15px; fill: currentColor; }
-.pill-linkedin { background: #0A66C2; }
-.pill-github { background: #24292E; }
-.pill-email { background: #EA4335; }
+/* Monochrome by default so the pills sit inside the palette rather than
+   pulling three unrelated brand colours into it. */
+.social-pill .pill-ico { background: var(--accent); color: var(--btn-text); }
+.social-pill:hover .pill-ico { background: var(--accent-secondary); }
 
 /* hero photo — arch shape */
 .hero-visuals-wrapper { position: relative; display: flex; justify-content: center; }
@@ -1101,7 +1160,7 @@ ul { list-style: none; }
     .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
     .hero-header-info { order: 2; }
     .hero-visuals-wrapper { order: 1; }
-    .hero-name { font-size: 2.8rem; letter-spacing: -1px; }
+    .hero-name { font-size: clamp(2.6rem, 11vw, 4rem); }
     .hero-role { font-size: 1.2rem; }
     .hero-bio p { text-align: left; }
     .hero-buttons, .hero-socials { justify-content: center; }
@@ -1125,8 +1184,8 @@ ul { list-style: none; }
     .container { padding: 0 18px; }
     .nav-brand-text { display: none; }
     .section { padding: 40px 0 60px; }
-    .section-title { font-size: 1.6rem; }
-    .hero-name { font-size: 2.2rem; word-spacing: 2px; }
+    .section-title { font-size: clamp(1.9rem, 9vw, 2.6rem); }
+    .hero-name { font-size: clamp(2.2rem, 13vw, 3rem); word-spacing: 2px; }
     .projects-grid, .cert-grid, .awards-grid, .education-grid { grid-template-columns: 1fr; }
     .edu-card { flex-direction: column; gap: 14px; }
     .footer-container { flex-direction: column; text-align: center; }
