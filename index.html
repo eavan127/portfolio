@@ -91,7 +91,7 @@
 
                 <div class="hero-visuals-wrapper">
                     <div class="hero-image-container" id="heroImageContainer">
-                        <img src="resources/assets/hero/home/profile.jpg" alt="Eavan Tan"
+                        <img class="zoomable" src="resources/assets/hero/home/profile.jpg" alt="Eavan Tan"
                             onerror="this.closest('.hero-image-container').classList.add('is-fallback')">
                         <div class="hero-image-fallback">
                             <span>ET</span>
@@ -100,10 +100,6 @@
                     </div>
                 </div>
             </div>
-
-            <a class="scroll-cue" href="#projects" aria-label="Scroll to projects">
-                <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-            </a>
         </section>
 
         <!-- ============ PROJECTS ============ -->
@@ -196,6 +192,17 @@
             <div class="footer-socials" id="footerSocials"></div>
         </div>
     </footer>
+
+    <!-- ============ LIGHTBOX ============ -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image preview">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+            <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <figure class="lightbox-frame">
+            <img id="lightboxImg" src="" alt="">
+            <figcaption id="lightboxCaption"></figcaption>
+        </figure>
+    </div>
 
     <script src="resources/data.js"></script>
     <script src="resources/script.js"></script>

@@ -8,7 +8,7 @@ const portfolioData = {
     /* ---------------- Personal ---------------- */
     name: "EAVAN TAN",
     role: "Internship Seeker, May to Dec 2027",
-    microline: "PETRONAS Scholar | Bachelor of Computer Science | Universiti Teknologi PETRONAS",
+    microline: "Bachelor of Computer Science | Universiti Teknologi PETRONAS | PETRONAS Scholar",
     heroImage: "resources/assets/hero/home/profile.jpg",
     resumeLink: "resources/assets/docs/Eavan_Tan_Resume.pdf",
     email: "eavan_24006152@utp.edu.my",
@@ -158,7 +158,8 @@ const portfolioData = {
             ],
             tags: ["Oracle 21c XE", "SQL*Plus", "SQL Developer", "ERD", "draw.io"],
             repo: null, live: null,
-            report: "https://drive.google.com/file/d/1a15moC4x58jPgWE23v1HmI_Y_5VlgkIg/view"
+            report: "https://drive.google.com/file/d/1a15moC4x58jPgWE23v1HmI_Y_5VlgkIg/view",
+            erd: "https://drive.google.com/file/d/1VR8zyPSFW1GlZa3aBLnWz53CoUkErxVR/view"
         },
         {
             cats: ["web"], glyph: "shield",

@@ -116,6 +116,7 @@
             if (p.deck)   parts.push(link(p.deck, 'btn-outline', 'deck', 'Pitch deck'));
             if (p.video)  parts.push(link(p.video, 'btn-outline', 'play', 'Demo video'));
             if (p.report) parts.push(link(p.report, 'btn-outline', 'report', 'Assignment report'));
+            if (p.erd)    parts.push(link(p.erd, 'btn-outline', 'layers', 'ERD diagram'));
             const actions = parts.join('');
 
             return '<article class="project-card fade-up" data-cats="' + esc(p.cats.join(' ')) + '">' +
@@ -162,7 +163,7 @@
                 const img = document.createElement('img');
                 img.src = url;
                 img.alt = p.title;
-                img.className = 'project-thumb-img';
+                img.className = 'project-thumb-img zoomable';
                 el.appendChild(img);
                 el.classList.add('has-photo');
             });
@@ -202,7 +203,7 @@
             '<div class="timeline-item fade-up">' +
                 '<div class="timeline-card">' +
                     (x.photo
-                        ? '<div class="timeline-photo"><img src="' + esc(x.photo) + '" alt="' + esc(x.role) +
+                        ? '<div class="timeline-photo"><img class="zoomable" src="' + esc(x.photo) + '" alt="' + esc(x.role) +
                           '" onerror="this.closest(\'.timeline-photo\').remove()"></div>'
                         : '') +
                     '<div class="timeline-head">' +
@@ -238,7 +239,7 @@
         $('#awardsGrid').innerHTML = D.awards.map(a =>
             '<article class="award-card fade-up">' +
                 (a.photo
-                    ? '<div class="award-photo"><img src="' + esc(a.photo) + '" alt="' + esc(a.title) +
+                    ? '<div class="award-photo"><img class="zoomable" src="' + esc(a.photo) + '" alt="' + esc(a.title) +
                       '" onerror="this.closest(\'.award-photo\').remove()"></div>'
                     : '') +
                 '<div class="award-top">' +
@@ -260,7 +261,7 @@
         $('#educationGrid').innerHTML = D.education.map(e =>
             '<article class="edu-card fade-up">' +
                 (e.photo
-                    ? '<span class="edu-badge edu-badge-photo"><img src="' + esc(e.photo) + '" alt="' + esc(e.degree) +
+                    ? '<span class="edu-badge edu-badge-photo"><img class="zoomable" src="' + esc(e.photo) + '" alt="' + esc(e.degree) +
                       '" onerror="this.parentElement.classList.remove(\'edu-badge-photo\');this.remove()"></span>'
                     : '<span class="edu-badge">' + esc(e.badge) + '</span>') +
                 '<div class="edu-main">' +
@@ -284,7 +285,7 @@
             '<article class="cert-card fade-up">' +
                 '<div class="cert-thumb' + (c.photo ? ' has-photo' : '') + '">' +
                     (c.photo
-                        ? '<img class="cert-thumb-img" src="' + esc(c.photo) + '" alt="' + esc(c.name) +
+                        ? '<img class="cert-thumb-img zoomable" src="' + esc(c.photo) + '" alt="' + esc(c.name) +
                           '" onerror="this.remove();this.parentElement.classList.remove(\'has-photo\')">'
                         : '') +
                     '<span class="cert-emoji">' + c.emoji + '</span>' +
@@ -425,13 +426,6 @@
         });
         $('#navBackdrop').addEventListener('click', closeMobileNav);
 
-        // Scroll cue and any in-page anchor that is not a nav target
-        $('.scroll-cue').addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.getElementById('projects');
-            window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
-        });
-
         window.addEventListener('hashchange', () =>
             showSection(location.hash.replace('#', '')));
 
@@ -450,6 +444,48 @@
         });
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') closeMobileNav();
+        });
+    }
+
+    /* ---------------------------------------------------------------------
+       LIGHTBOX
+       Any <img class="zoomable"> opens full-size on click. Delegated, so it
+       covers images rendered later (project thumbs, timeline photos, etc.)
+       without each renderer needing its own listener.
+       --------------------------------------------------------------------- */
+    function initLightbox() {
+        const box = $('#lightbox');
+        const img = $('#lightboxImg');
+        const caption = $('#lightboxCaption');
+        let lastFocus = null;
+
+        function open(src, alt) {
+            lastFocus = document.activeElement;
+            img.src = src;
+            img.alt = alt || '';
+            caption.textContent = alt || '';
+            box.classList.add('open');
+            box.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('lightbox-lock');
+            $('#lightboxClose').focus();
+        }
+
+        function close() {
+            box.classList.remove('open');
+            box.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('lightbox-lock');
+            img.src = '';
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+
+        document.addEventListener('click', e => {
+            const target = e.target.closest('.zoomable');
+            if (target) { open(target.src, target.alt); return; }
+            if (e.target === box) close();
+        });
+        $('#lightboxClose').addEventListener('click', close);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && box.classList.contains('open')) close();
         });
     }
 
@@ -491,6 +527,7 @@
 
         initNav();
         initTheme();
+        initLightbox();
 
         $('#year').textContent = new Date().getFullYear();
         showSection(location.hash.replace('#', '') || 'home');
