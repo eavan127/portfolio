@@ -131,7 +131,7 @@ const portfolioData = {
             live: "https://eavan127-malaysian-dialect-rag.streamlit.app", liveLabel: "Try it live"
         },
         {
-            cats: ["ai"], glyph: "users", prototype: true,
+            cats: ["ai"], glyph: "users", prototype: true, thumb: "resources/assets/hero/projects/AWS_onboarding",
             title: "AWS-IQ: Multi-Agent Onboarding System",
             sub: "AWS × UTP GenAI Hackathon",
             date: "Jun 2026", award: "Silver",
@@ -142,7 +142,9 @@ const portfolioData = {
                 "Wired a custom <strong>folder-watcher MCP server</strong> so dropping a file into an inbox directory triggers the whole pipeline."
             ],
             tags: ["Amazon Bedrock", "AWS", "Python", "MCP", "Kiro", "ETL", "Prototype"],
-            repo: "https://github.com/Jessy123123/NEXA_AWS", live: null
+            repo: "https://github.com/Jessy123123/NEXA_AWS", live: null,
+            deck: "https://drive.google.com/file/d/1-qv5TARPRQ_fqVocSOMj84kuIUYQb4eJ/view?usp=sharing",
+            video: "https://drive.google.com/file/d/1vVKL1XWWBfPU0lCclDzfB4rcyLU7MG8C/view?usp=sharing"
         },
         {
             cats: ["data"], glyph: "database", thumb: "resources/assets/hero/projects/scandal costume",
