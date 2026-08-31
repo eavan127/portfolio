@@ -35,25 +35,23 @@ Save a portrait as `resources/assets/hero/profile.jpg` (4:5 crop, ~800x1000).
 It fills both the hero arch and the navbar avatar. Until it exists, both fall
 back to an "ET" monogram — nothing breaks.
 
-## Palettes
+## Colour
 
-Six combinations, switchable live from the palette button in the header and
-remembered in `localStorage`. Each has a matching dark variant.
+One palette, lifted from the two reference sites. No switcher.
 
-| id | Combination |
-|----|-------------|
-| `bone`     | Bone & Terracotta *(default)* |
-| `emerald`  | Emerald & Antique Gold |
-| `sapphire` | Midnight Sapphire & Ice Blue |
-| `burgundy` | Burgundy & Champagne |
-| `teal`     | Deep Teal & Copper |
-| `indigo`   | Indigo & Violet |
-| `graphite` | Graphite & Cyan |
+| Token | Value | Source |
+|-------|-------|--------|
+| ground | `#080808` | tahahassan.vercel.app |
+| bone / ivory | `#F1F0EC` | tahahassan.vercel.app |
+| warm grey | `#D7D5CF` | tahahassan.vercel.app |
+| clay accent | `#BD5D3F` | akwastaken.github.io (`--special-accent`) |
 
-To lock one in as the default, change the fallback in the inline script at the
-top of `index.html` (`localStorage.getItem('palette') || 'bone'`). To remove
-the switcher entirely, delete the `#paletteToggle` button and the `#palettePop`
-block from `index.html`.
+Dark is the default, matching those sites. The header toggle switches to light,
+which inverts the same two colours — bone ground, near-black type. Everything
+lives in the two token blocks at the top of `resources/styles.css`.
+
+To use tahahassan's redder accent instead, change `--accent-secondary` to
+`#EF4444` in both blocks. Nothing else moves.
 
 ## Typography
 

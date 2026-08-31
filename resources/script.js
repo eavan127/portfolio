@@ -1,6 +1,6 @@
 /* ==========================================================================
    Eavan Tan — portfolio behaviour
-   SPA section routing, renderers, theme + palette switching.
+   SPA section routing, renderers, light/dark theme.
    ========================================================================== */
 
 (function () {
@@ -381,47 +381,12 @@
        --------------------------------------------------------------------- */
     function initTheme() {
         $('#themeToggle').addEventListener('click', () => {
-            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', next);
-            try { localStorage.setItem('theme', next); } catch (_) {}
-        });
-    }
-
-    function initPalette() {
-        $('#paletteList').innerHTML = D.palettes.map(p =>
-            '<button class="palette-option" data-palette="' + esc(p.id) + '">' +
-                '<span class="palette-swatch">' +
-                    p.sw.map(c => '<i style="background:' + esc(c) + '"></i>').join('') +
-                '</span>' +
-                '<span><b>' + esc(p.name) + '</b><small>' + esc(p.note) + '</small></span>' +
-            '</button>'
-        ).join('');
-
-        function mark() {
-            const cur = document.documentElement.getAttribute('data-palette');
-            $$('.palette-option').forEach(b => b.classList.toggle('active', b.dataset.palette === cur));
-        }
-        mark();
-
-        $('#paletteList').addEventListener('click', e => {
-            const btn = e.target.closest('.palette-option');
-            if (!btn) return;
-            document.documentElement.setAttribute('data-palette', btn.dataset.palette);
-            try { localStorage.setItem('palette', btn.dataset.palette); } catch (_) {}
-            mark();
-        });
-
-        $('#paletteToggle').addEventListener('click', e => {
-            e.stopPropagation();
-            $('#palettePop').classList.toggle('open');
-        });
-        document.addEventListener('click', e => {
-            if (!e.target.closest('#palettePop') && !e.target.closest('#paletteToggle')) {
-                $('#palettePop').classList.remove('open');
-            }
+            try { localStorage.setItem('theme-v2', next); } catch (_) {}
         });
         document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') { $('#palettePop').classList.remove('open'); closeMobileNav(); }
+            if (e.key === 'Escape') closeMobileNav();
         });
     }
 
@@ -462,7 +427,6 @@
 
         initNav();
         initTheme();
-        initPalette();
 
         $('#year').textContent = new Date().getFullYear();
         showSection(location.hash.replace('#', '') || 'home');

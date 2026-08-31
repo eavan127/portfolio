@@ -1,293 +1,67 @@
 /* ==========================================================================
    Eavan Tan — Portfolio
    Layout modelled on a glassmorphic SPA portfolio pattern.
-   Colour is fully tokenised: [data-palette] × [data-theme].
+   Dark by default; light mode via [data-theme="light"].
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   PALETTES — LIGHT
+   COLOUR
+
+   One palette, taken directly from the two reference sites:
+
+     #080808   ground            tahahassan.vercel.app
+     #F1F0EC   bone / ivory      tahahassan.vercel.app
+     #D7D5CF   warm grey         tahahassan.vercel.app
+     #BD5D3F   clay accent       akwastaken.github.io (--special-accent)
+
+   Dark is the default, matching those sites. Light mode inverts to the same
+   two colours: bone ground, near-black type.
+
+   To use the redder accent from tahahassan instead, change --accent-secondary
+   in both blocks below to #EF4444. Nothing else needs to move.
    -------------------------------------------------------------------------- */
 
-:root,
-[data-palette="bone"] {
-    --bg-primary: #F1F0EC;
-    --bg-secondary: #E9E7E1;
-    --text-primary: #080808;
-    --text-secondary: #5F5C55;
-    --accent: #1A1A1A;
-    --accent-hover: #000000;
-    --accent-secondary: #BD5D3F;
-    --accent-secondary-hover: #9E4830;
-    --soft-accent: #E4E1D9;
-    --card-bg: #F8F7F4;
-    --glass-border: rgba(8, 8, 8, 0.11);
-    --navbar-bg: rgba(241, 240, 236, 0.82);
-    --navbar-bg-scrolled: rgba(241, 240, 236, 0.95);
-    --pill-bg: rgba(8, 8, 8, 0.04);
-    --btn-text: #F1F0EC;
-    --accent-rgb: 26, 26, 26;
-    --accent2-rgb: 189, 93, 63;
-}
-
-[data-palette="emerald"] {
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #FAFAF8;
-    --text-primary: #16201B;
-    --text-secondary: #55635C;
-    --accent: #0F5132;
-    --accent-hover: #0A3A24;
-    --accent-secondary: #C9A227;
-    --accent-secondary-hover: #A98615;
-    --soft-accent: #F1F7F3;
-    --card-bg: #FFFFFF;
-    --glass-border: rgba(22, 32, 27, 0.09);
-    --navbar-bg: rgba(255, 255, 255, 0.82);
-    --navbar-bg-scrolled: rgba(255, 255, 255, 0.95);
-    --pill-bg: rgba(0, 0, 0, 0.03);
-    --btn-text: #FFFFFF;
-    --accent-rgb: 15, 81, 50;
-    --accent2-rgb: 201, 162, 39;
-}
-
-[data-palette="sapphire"] {
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #F9FAFC;
-    --text-primary: #111A29;
-    --text-secondary: #55627A;
-    --accent: #1B3A6B;
-    --accent-hover: #132B50;
-    --accent-secondary: #4C8BF5;
-    --accent-secondary-hover: #2F6FE0;
-    --soft-accent: #F0F4FB;
-    --card-bg: #FFFFFF;
-    --glass-border: rgba(17, 26, 41, 0.09);
-    --navbar-bg: rgba(255, 255, 255, 0.82);
-    --navbar-bg-scrolled: rgba(255, 255, 255, 0.95);
-    --pill-bg: rgba(0, 0, 0, 0.03);
-    --btn-text: #FFFFFF;
-    --accent-rgb: 27, 58, 107;
-    --accent2-rgb: 76, 139, 245;
-}
-
-[data-palette="burgundy"] {
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #FCF9F8;
-    --text-primary: #22151A;
-    --text-secondary: #67565B;
-    --accent: #6B1F3A;
-    --accent-hover: #501629;
-    --accent-secondary: #B9873F;
-    --accent-secondary-hover: #9A6E2C;
-    --soft-accent: #FBF3F5;
-    --card-bg: #FFFFFF;
-    --glass-border: rgba(34, 21, 26, 0.09);
-    --navbar-bg: rgba(255, 255, 255, 0.82);
-    --navbar-bg-scrolled: rgba(255, 255, 255, 0.95);
-    --pill-bg: rgba(0, 0, 0, 0.03);
-    --btn-text: #FFFFFF;
-    --accent-rgb: 107, 31, 58;
-    --accent2-rgb: 185, 135, 63;
-}
-
-[data-palette="teal"] {
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #F8FBFA;
-    --text-primary: #0F1F1E;
-    --text-secondary: #4E605E;
-    --accent: #0E4749;
-    --accent-hover: #093334;
-    --accent-secondary: #C97B4A;
-    --accent-secondary-hover: #AC6033;
-    --soft-accent: #EFF6F5;
-    --card-bg: #FFFFFF;
-    --glass-border: rgba(15, 31, 30, 0.09);
-    --navbar-bg: rgba(255, 255, 255, 0.82);
-    --navbar-bg-scrolled: rgba(255, 255, 255, 0.95);
-    --pill-bg: rgba(0, 0, 0, 0.03);
-    --btn-text: #FFFFFF;
-    --accent-rgb: 14, 71, 73;
-    --accent2-rgb: 201, 123, 74;
-}
-
-[data-palette="indigo"] {
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #FAFAFD;
-    --text-primary: #17142B;
-    --text-secondary: #5B5678;
-    --accent: #312E81;
-    --accent-hover: #262263;
-    --accent-secondary: #8B5CF6;
-    --accent-secondary-hover: #7239EE;
-    --soft-accent: #F3F1FC;
-    --card-bg: #FFFFFF;
-    --glass-border: rgba(23, 20, 43, 0.09);
-    --navbar-bg: rgba(255, 255, 255, 0.82);
-    --navbar-bg-scrolled: rgba(255, 255, 255, 0.95);
-    --pill-bg: rgba(0, 0, 0, 0.03);
-    --btn-text: #FFFFFF;
-    --accent-rgb: 49, 46, 129;
-    --accent2-rgb: 139, 92, 246;
-}
-
-[data-palette="graphite"] {
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #F9FAFA;
-    --text-primary: #101827;
-    --text-secondary: #56606F;
-    --accent: #0F172A;
-    --accent-hover: #020617;
-    --accent-secondary: #0891B2;
-    --accent-secondary-hover: #067391;
-    --soft-accent: #F0F5F7;
-    --card-bg: #FFFFFF;
-    --glass-border: rgba(16, 24, 39, 0.09);
-    --navbar-bg: rgba(255, 255, 255, 0.82);
-    --navbar-bg-scrolled: rgba(255, 255, 255, 0.95);
-    --pill-bg: rgba(0, 0, 0, 0.03);
-    --btn-text: #FFFFFF;
-    --accent-rgb: 15, 23, 42;
-    --accent2-rgb: 8, 145, 178;
-}
-
-/* --------------------------------------------------------------------------
-   PALETTES — DARK
-   In dark mode the lighter of the two brand colours becomes the lead accent,
-   so contrast stays legible on a near-black ground.
-   -------------------------------------------------------------------------- */
-
-[data-theme="dark"] {
-    --bg-primary: #0A0C0B;
-    --bg-secondary: #111413;
-    --text-primary: #F7FAF8;
-    --text-secondary: #A2ADA7;
-    --card-bg: #161A18;
-    --glass-border: rgba(255, 255, 255, 0.09);
-    --navbar-bg: rgba(10, 12, 11, 0.82);
-    --navbar-bg-scrolled: rgba(10, 12, 11, 0.95);
-    --pill-bg: rgba(255, 255, 255, 0.05);
-    --btn-text: #0A0C0B;
-}
-
-[data-theme="dark"][data-palette="bone"],
-[data-theme="dark"]:not([data-palette]) {
+:root {
+    /* dark — the default */
     --bg-primary: #080808;
     --bg-secondary: #101010;
     --card-bg: #151515;
     --navbar-bg: rgba(8, 8, 8, 0.82);
     --navbar-bg-scrolled: rgba(8, 8, 8, 0.95);
     --text-primary: #F1F0EC;
-    --text-secondary: #908D86;
+    --text-secondary: #8E8B84;
     --glass-border: rgba(241, 240, 236, 0.12);
     --pill-bg: rgba(241, 240, 236, 0.05);
     --accent: #F1F0EC;
     --accent-hover: #FFFFFF;
-    --accent-secondary: #D97A56;
-    --accent-secondary-hover: #E89673;
-    --soft-accent: #1A1A1A;
+    --accent-secondary: #BD5D3F;
+    --accent-secondary-hover: #D3714F;
+    --soft-accent: #171717;
     --btn-text: #080808;
     --accent-rgb: 241, 240, 236;
-    --accent2-rgb: 217, 122, 86;
+    --accent2-rgb: 189, 93, 63;
 }
 
-[data-theme="dark"][data-palette="emerald"] {
-    --accent: #C9A227;
-    --accent-hover: #E0BC48;
-    --accent-secondary: #4CAF7D;
-    --accent-secondary-hover: #6BC697;
-    --soft-accent: #1E1B10;
-    --accent-rgb: 201, 162, 39;
-    --accent2-rgb: 76, 175, 125;
+[data-theme="light"] {
+    --bg-primary: #F1F0EC;
+    --bg-secondary: #E7E5DF;
+    --card-bg: #F8F7F4;
+    --navbar-bg: rgba(241, 240, 236, 0.82);
+    --navbar-bg-scrolled: rgba(241, 240, 236, 0.95);
+    --text-primary: #080808;
+    --text-secondary: #605D57;
+    --glass-border: rgba(8, 8, 8, 0.12);
+    --pill-bg: rgba(8, 8, 8, 0.04);
+    --accent: #080808;
+    --accent-hover: #000000;
+    --accent-secondary: #BD5D3F;
+    --accent-secondary-hover: #9E4830;
+    --soft-accent: #E3E0D8;
+    --btn-text: #F1F0EC;
+    --accent-rgb: 8, 8, 8;
+    --accent2-rgb: 189, 93, 63;
 }
 
-[data-theme="dark"][data-palette="sapphire"] {
-    --bg-primary: #080B12;
-    --bg-secondary: #0E1219;
-    --card-bg: #141922;
-    --navbar-bg: rgba(8, 11, 18, 0.82);
-    --navbar-bg-scrolled: rgba(8, 11, 18, 0.95);
-    --text-primary: #F6F9FD;
-    --text-secondary: #9FADC4;
-    --accent: #6BA5FF;
-    --accent-hover: #8CBAFF;
-    --accent-secondary: #9FC1FA;
-    --accent-secondary-hover: #BFD6FC;
-    --soft-accent: #10192A;
-    --btn-text: #080B12;
-    --accent-rgb: 107, 165, 255;
-    --accent2-rgb: 159, 193, 250;
-}
-
-[data-theme="dark"][data-palette="burgundy"] {
-    --bg-primary: #0D0709;
-    --bg-secondary: #140C0F;
-    --card-bg: #1B1114;
-    --navbar-bg: rgba(13, 7, 9, 0.82);
-    --navbar-bg-scrolled: rgba(13, 7, 9, 0.95);
-    --text-primary: #FBF6F7;
-    --text-secondary: #B4A0A6;
-    --accent: #E0A25C;
-    --accent-hover: #EFB878;
-    --accent-secondary: #D9738F;
-    --accent-secondary-hover: #E894AA;
-    --soft-accent: #21120F;
-    --btn-text: #0D0709;
-    --accent-rgb: 224, 162, 92;
-    --accent2-rgb: 217, 115, 143;
-}
-
-[data-theme="dark"][data-palette="teal"] {
-    --bg-primary: #060D0D;
-    --bg-secondary: #0C1413;
-    --card-bg: #111A19;
-    --navbar-bg: rgba(6, 13, 13, 0.82);
-    --navbar-bg-scrolled: rgba(6, 13, 13, 0.95);
-    --text-primary: #F4FAF9;
-    --text-secondary: #9BAFAD;
-    --accent: #E7A277;
-    --accent-hover: #F2B991;
-    --accent-secondary: #4FB3AE;
-    --accent-secondary-hover: #6FC9C4;
-    --soft-accent: #1C1310;
-    --btn-text: #060D0D;
-    --accent-rgb: 231, 162, 119;
-    --accent2-rgb: 79, 179, 174;
-}
-
-[data-theme="dark"][data-palette="indigo"] {
-    --bg-primary: #0A0814;
-    --bg-secondary: #110E1F;
-    --card-bg: #171328;
-    --navbar-bg: rgba(10, 8, 20, 0.82);
-    --navbar-bg-scrolled: rgba(10, 8, 20, 0.95);
-    --text-primary: #F8F7FD;
-    --text-secondary: #A69FC4;
-    --accent: #A78BFA;
-    --accent-hover: #C0AAFC;
-    --accent-secondary: #C4B5FD;
-    --accent-secondary-hover: #DCD2FE;
-    --soft-accent: #1A1533;
-    --btn-text: #0A0814;
-    --accent-rgb: 167, 139, 250;
-    --accent2-rgb: 196, 181, 253;
-}
-
-[data-theme="dark"][data-palette="graphite"] {
-    --bg-primary: #07090C;
-    --bg-secondary: #0D1116;
-    --card-bg: #12171D;
-    --navbar-bg: rgba(7, 9, 12, 0.82);
-    --navbar-bg-scrolled: rgba(7, 9, 12, 0.95);
-    --text-primary: #F6F9FB;
-    --text-secondary: #98A5B4;
-    --accent: #22D3EE;
-    --accent-hover: #56E1F5;
-    --accent-secondary: #67E8F9;
-    --accent-secondary-hover: #A0F0FC;
-    --soft-accent: #0C1D22;
-    --btn-text: #07090C;
-    --accent-rgb: 34, 211, 238;
-    --accent2-rgb: 103, 232, 249;
-}
 
 /* --------------------------------------------------------------------------
    BASE
@@ -415,9 +189,10 @@ ul { list-style: none; }
 }
 .icon-toggle:hover { transform: translateY(-1px); border-color: var(--accent); }
 .icon-toggle .ico { width: 18px; height: 18px; }
-.ico-moon { display: none; }
-[data-theme="dark"] .ico-sun { display: none; }
-[data-theme="dark"] .ico-moon { display: block; }
+.ico-sun { display: none; }
+.ico-moon { display: block; }
+[data-theme="light"] .ico-sun { display: block; }
+[data-theme="light"] .ico-moon { display: none; }
 
 .menu-toggle {
     display: none; width: 40px; height: 38px; border-radius: 10px;
@@ -452,50 +227,6 @@ ul { list-style: none; }
     opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
 }
 .nav-backdrop.on { opacity: 1; pointer-events: auto; }
-
-/* --------------------------------------------------------------------------
-   PALETTE POPOVER
-   -------------------------------------------------------------------------- */
-
-.palette-pop {
-    position: fixed; top: 68px; right: 24px; z-index: 1001;
-    width: min(340px, calc(100vw - 32px));
-    background: var(--card-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 18px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-    padding: 14px;
-    opacity: 0; visibility: hidden; transform: translateY(-8px);
-    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.palette-pop.open { opacity: 1; visibility: visible; transform: none; }
-.palette-pop-head { padding: 4px 6px 12px; }
-.palette-pop-head strong {
-    display: block; font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem; color: var(--text-primary);
-}
-.palette-pop-head span { font-size: 0.75rem; color: var(--text-secondary); }
-.palette-pop-list { display: flex; flex-direction: column; gap: 6px; }
-
-.palette-option {
-    display: flex; align-items: center; gap: 10px; width: 100%;
-    padding: 9px 10px; border-radius: 12px;
-    border: 1px solid transparent; text-align: left;
-    transition: all 0.22s ease;
-}
-.palette-option:hover { background: var(--soft-accent); }
-.palette-option.active { border-color: var(--accent); background: var(--soft-accent); }
-.palette-swatch {
-    display: flex; border-radius: 7px; overflow: hidden; flex-shrink: 0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-.palette-swatch i { width: 16px; height: 32px; display: block; }
-.palette-option b {
-    display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-primary);
-}
-.palette-option small {
-    display: block; font-size: 0.71rem; color: var(--text-secondary); line-height: 1.4;
-}
 
 /* --------------------------------------------------------------------------
    BUTTONS

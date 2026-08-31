@@ -552,17 +552,6 @@ const portfolioData = {
         { emoji: "💰", issuer: "Financial Education for Youth", date: "", name: "Certificate of Participation", note: "Personal finance and financial literacy foundations", link: null }
     ],
 
-    /* ---------------- Palettes ---------------- */
-    palettes: [
-        { id: "bone", name: "Bone & Terracotta", note: "Warm ivory against near-black with one restrained clay accent. The editorial choice.", sw: ["#080808", "#F1F0EC", "#BD5D3F", "#D7D5CF"] },
-        { id: "emerald", name: "Emerald & Antique Gold", note: "Heritage luxury — established and serious.", sw: ["#0B2E22", "#0F5132", "#C9A227", "#E4CF8A"] },
-        { id: "sapphire", name: "Midnight Sapphire & Ice", note: "Corporate-tech confidence. Safest with recruiters.", sw: ["#0C1B33", "#1B3A6B", "#4C8BF5", "#9FC1FA"] },
-        { id: "burgundy", name: "Burgundy & Champagne", note: "Editorial warmth — distinctive and mature.", sw: ["#3B0F22", "#6B1F3A", "#B9873F", "#E3C89B"] },
-        { id: "teal", name: "Deep Teal & Copper", note: "Architectural. Closest in energy to the original orange.", sw: ["#08302F", "#0E4749", "#C97B4A", "#E7B08A"] },
-        { id: "indigo", name: "Indigo & Violet", note: "Contemporary AI — modern without going neon.", sw: ["#1E1B4B", "#312E81", "#8B5CF6", "#C4B5FD"] },
-        { id: "graphite", name: "Graphite & Cyan", note: "Engineer's terminal — minimal and precise.", sw: ["#0F172A", "#1E293B", "#0891B2", "#67E8F9"] }
-    ],
-
     navItems: [
         { id: "home", label: "Home", icon: "home" },
         { id: "projects", label: "Projects", icon: "folder" },
