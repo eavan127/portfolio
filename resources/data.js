@@ -67,7 +67,7 @@ const portfolioData = {
             video: "https://drive.google.com/file/d/1O3v3ORr7W8zI_I41Uzz-YH745zjbmboO/view"
         },
         {
-            cats: ["vr", "ai"], glyph: "box",
+            cats: ["vr", "ai"], glyph: "box", thumb: "resources/assets/hero/projects/CulturaVerse",
             title: "CulturaVerse: AI-Powered VR Literature Platform",
             sub: "Team Lumenix · CICSC 2026 · Project Leader",
             date: "Feb to May 2026", award: "Bronze",
@@ -116,7 +116,7 @@ const portfolioData = {
             live: "https://sedicai-nexa.onrender.com/", liveLabel: "Live demo"
         },
         {
-            cats: ["ai"], glyph: "search",
+            cats: ["ai"], glyph: "search", thumb: "resources/assets/hero/projects/rag_dialect",
             title: "Malaysian Dialect Translation RAG",
             sub: "Independent NLP research build",
             date: "Apr 2026", award: null,
@@ -145,7 +145,7 @@ const portfolioData = {
             repo: "https://github.com/Jessy123123/NEXA_AWS", live: null
         },
         {
-            cats: ["data"], glyph: "database",
+            cats: ["data"], glyph: "database", thumb: "resources/assets/hero/projects/scandal costume",
             title: "Scandal Couture: Retail DBMS",
             sub: "Oracle relational database coursework",
             date: "May to Jul 2026", award: null,
@@ -162,7 +162,7 @@ const portfolioData = {
             erd: "https://drive.google.com/file/d/1VR8zyPSFW1GlZa3aBLnWz53CoUkErxVR/view"
         },
         {
-            cats: ["web"], glyph: "shield",
+            cats: ["web"], glyph: "shield", thumb: "resources/assets/hero/projects/MYMULA",
             title: "MyMULA Junior: Digital Legal Guardian",
             sub: "Digital identity & consent protocol",
             date: "Jan 2026", award: null,
@@ -177,7 +177,7 @@ const portfolioData = {
             live: "https://my-mula-junior.vercel.app", liveLabel: "Live demo"
         },
         {
-            cats: ["sys", "data"], glyph: "layers",
+            cats: ["sys", "data"], glyph: "layers", thumb: "resources/assets/hero/projects/ADS_swift",
             title: "SwiftQueue: Virtual Queue Redesign",
             sub: "ADS TEB1113 · group project",
             date: "Jul 2026", award: null,
@@ -193,7 +193,7 @@ const portfolioData = {
             report: "https://drive.google.com/file/d/1oSjGwpiGjUQ8rZ28jBq6LQsFItsS-g8P/view"
         },
         {
-            cats: ["sys", "web"], glyph: "check-circle",
+            cats: ["sys", "web"], glyph: "check-circle", thumb: "resources/assets/hero/projects/sortify",
             title: "Sortify: Recycling Habit System",
             sub: "OH MY CODE 16.0 · Group 13 · Team Leader",
             date: "Jul 2025", award: "14.63 / 15",
@@ -209,7 +209,7 @@ const portfolioData = {
             video: "https://drive.google.com/file/d/1yX1ItTAtRtTbjj5O0PU9agkflwUuQid6/view"
         },
         {
-            cats: ["sys"], glyph: "code", thumb: "src/seashark_ui",
+            cats: ["sys"], glyph: "code", thumb: "resources/assets/hero/projects/OOP_seashark",
             title: "Sea Shark: Educational C# Platformer",
             sub: "Object-Oriented Programming project",
             date: "Mar 2026", award: null,
@@ -238,7 +238,7 @@ const portfolioData = {
             repo: "https://github.com/eavan127/ADS_TEB1113", live: null
         },
         {
-            cats: ["web"], glyph: "layout",
+            cats: ["web"], glyph: "layout", thumb: "resources/assets/hero/projects/occ_website",
             title: "Open Computing Club: Official Website",
             sub: "OCC, Universiti Teknologi PETRONAS",
             date: "Jan 2026", award: null,
@@ -252,7 +252,7 @@ const portfolioData = {
             live: "https://occ-club-web.vercel.app", liveLabel: "Live site"
         },
         {
-            cats: ["web"], glyph: "layout",
+            cats: ["web"], glyph: "layout", thumb: "resources/assets/hero/projects/fried_chicken",
             title: "Crispy: Restaurant Landing Page",
             sub: "Front-end design exercise",
             date: "Nov 2025", award: null,
