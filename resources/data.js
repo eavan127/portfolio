@@ -9,7 +9,7 @@ const portfolioData = {
     name: "EAVAN TAN",
     role: "AI / ML Engineer",
     microline: "RAG & LLM Pipelines | Computer Vision | Deep Learning | VR | Full-Stack",
-    heroImage: "resources/assets/hero/profile.jpg",
+    heroImage: "resources/assets/hero/home/profile.jpg",
     resumeLink: "resources/assets/docs/Eavan_Tan_Resume.pdf",
     email: "evan17tan@gmail.com",
 
@@ -178,18 +178,18 @@ const portfolioData = {
             live: "https://eavan127-malaysian-dialect-rag.streamlit.app", liveLabel: "Try it live"
         },
         {
-            cats: ["ai"], glyph: "users",
+            cats: ["ai"], glyph: "users", prototype: true,
             title: "AWS-IQ: Multi-Agent Onboarding System",
             sub: "AWS × UTP GenAI Hackathon",
             date: "Jun 2026", award: "Silver",
-            desc: "A multi-agent AI onboarding assistant on Amazon Bedrock that ingests a new hire's document inbox and turns unstructured files into structured, queryable onboarding knowledge.",
+            desc: "A working prototype, not a finished product: a multi-agent AI onboarding assistant on Amazon Bedrock that ingests a new hire's document inbox and turns unstructured files into structured, queryable onboarding knowledge.",
             impact: [
-                "Placed <strong>1st Runner-Up</strong> against university-wide competition, built inside a hackathon window.",
+                "Placed <strong>1st Runner-Up</strong> against university-wide competition, built inside a hackathon window as a proof of concept.",
                 "Orchestrated <strong>multiple cooperating Bedrock agents</strong> through a skill-driven ETL pipeline rather than one monolithic prompt.",
                 "Wired a custom <strong>folder-watcher MCP server</strong> so dropping a file into an inbox directory triggers the whole pipeline."
             ],
-            tags: ["Amazon Bedrock", "AWS", "Python", "MCP", "Kiro", "ETL"],
-            repo: null, live: null
+            tags: ["Amazon Bedrock", "AWS", "Python", "MCP", "Kiro", "ETL", "Prototype"],
+            repo: "https://github.com/Jessy123123/NEXA_AWS", live: null
         },
         {
             cats: ["data"], glyph: "database",
@@ -204,21 +204,8 @@ const portfolioData = {
                 "Diagnosed and resolved Oracle integrity-constraint failures during load, the part that only shows up once data is real."
             ],
             tags: ["Oracle 21c XE", "SQL*Plus", "SQL Developer", "ERD", "draw.io"],
-            repo: null, live: null
-        },
-        {
-            cats: ["web", "ai"], glyph: "box",
-            title: "MyRumah: AI Interior Design Marketplace",
-            sub: "B2C / B2B2C furniture commerce app",
-            date: "Jan 2026", award: null,
-            desc: "A furniture marketplace where you photograph your room, let Gemini redesign it, and drop real 3D furniture models into the space before you spend anything.",
-            impact: [
-                "<strong>AI Architect</strong> turns a room photo into professional redesign concepts via Gemini 2.5 Flash, the step that usually costs a designer's fee.",
-                "<strong>Virtual Place</strong> renders drag-and-drop 3D furniture with Three.js, targeting the size-and-fit returns that hurt furniture retailers most.",
-                "Built a complete multi-merchant commerce flow covering grouped carts, vouchers, cards, e-wallets and FPX, plus a merchant role with its own storefront."
-            ],
-            tags: ["React Native", "Expo", "TypeScript", "Three.js", "Google Gemini"],
-            repo: "https://github.com/eavan127/myrumah", live: null
+            repo: null, live: null,
+            report: "https://drive.google.com/file/d/1a15moC4x58jPgWE23v1HmI_Y_5VlgkIg/view"
         },
         {
             cats: ["web"], glyph: "shield",
@@ -247,7 +234,9 @@ const portfolioData = {
                 "Framed the comparison around <strong>one data-structure decision</strong>, making the complexity argument visible rather than theoretical."
             ],
             tags: ["JavaScript", "Linked Queue", "HTML/CSS", "Algorithm Analysis"],
-            repo: "https://github.com/Jessy123123/ADS_TEB1113_SwiftQueue", live: null
+            repo: "https://github.com/Jessy123123/ADS_TEB1113_SwiftQueue",
+            live: "https://ads-teb-1113-swift-queue.vercel.app/", liveLabel: "Live demo",
+            report: "https://drive.google.com/file/d/1oSjGwpiGjUQ8rZ28jBq6LQsFItsS-g8P/view"
         },
         {
             cats: ["sys", "web"], glyph: "check-circle",
@@ -261,10 +250,12 @@ const portfolioData = {
                 "Closed the loop with image-upload proof and a reward wallet, turning a lookup tool into a <strong>habit-formation system</strong>."
             ],
             tags: ["VB.NET", "Microsoft Access", "WinForms", "SQL"],
-            repo: "https://github.com/eavan127/OMC_Sortify", live: null
+            repo: "https://github.com/eavan127/OMC_Sortify", live: null,
+            deck: "https://drive.google.com/file/d/15F-FhgvCi6F790AzlqHMGNnlzFaxm3tx/view",
+            video: "https://drive.google.com/file/d/1yX1ItTAtRtTbjj5O0PU9agkflwUuQid6/view"
         },
         {
-            cats: ["sys"], glyph: "code",
+            cats: ["sys"], glyph: "code", thumb: "src/seashark_ui",
             title: "Sea Shark: Educational C# Platformer",
             sub: "Object-Oriented Programming project",
             date: "Mar 2026", award: null,
@@ -275,7 +266,8 @@ const portfolioData = {
                 "Delivered as a six-member group project alongside a solo assignment build."
             ],
             tags: ["C#", ".NET", "OOP", "Console Application"],
-            repo: "https://github.com/eavan127/OOP_seashark", live: null
+            repo: "https://github.com/eavan127/OOP_seashark", live: null,
+            report: "https://drive.google.com/file/d/1_IKnCwnEdPDtljYgVzWG1iBFU3LtSp4C/view"
         },
         {
             cats: ["sys"], glyph: "git-branch",
@@ -460,12 +452,14 @@ const portfolioData = {
     awards: [
         {
             medal: "🥇", place: "Champion",
+            photo: "resources/assets/hero/awards/Jabil_competition/Jabil_group.png",
             title: "AI & Data Innovation Track",
             org: "Jabil IT ECP Bootcamp 3.0, Jabil Circuit", when: "June 2026",
             desc: "First place for NEXA, an AI-assisted tariff classification pipeline built for Jabil's Global Trade Compliance department, judged on real operational impact against an existing manual workflow."
         },
         {
             medal: "🥈", place: "1st Runner-Up",
+            photo: "resources/assets/hero/awards/AWS_hackathon/AWS_group.png",
             title: "Silver Award, GenAI Hackathon",
             org: "AWS × Universiti Teknologi PETRONAS", when: "June 2026",
             desc: "Awarded for AWS-IQ, a multi-agent AI onboarding system built on Amazon Bedrock with a custom MCP folder-watcher pipeline."
@@ -478,12 +472,14 @@ const portfolioData = {
         },
         {
             medal: "🎓", place: "Scholarship",
+            photo: "resources/assets/hero/awards/petronas_award.png",
             title: "PETRONAS Education Sponsorship Programme",
             org: "PETRONAS · PESP Scholar", when: "2024 to Present",
             desc: "Full sponsorship awarded through PETRONAS' national scholarship programme, covering the Foundation year and the Bachelor of Computer Science degree."
         },
         {
             medal: "🏅", place: "Excellence",
+            photo: "resources/assets/hero/awards/foundation.png",
             title: "Foundation 4.0 Excellence Award",
             org: "Universiti Teknologi PETRONAS", when: "2025",
             desc: "Awarded for achieving a perfect 4.00 grade point average across the Foundation in Computer Science programme."
@@ -510,6 +506,7 @@ const portfolioData = {
         },
         {
             badge: "UTP",
+            photo: "resources/assets/hero/educations/foundation.png",
             degree: "Foundation in Computer Science",
             years: "2024 to 2025",
             institution: "Universiti Teknologi PETRONAS, Perak, Malaysia",
@@ -520,6 +517,7 @@ const portfolioData = {
         },
         {
             badge: "SS",
+            photo: "resources/assets/hero/educations/SPM.png",
             degree: "Malaysian Certificate of Education (SPM)",
             years: "2019 to 2023",
             institution: "SM Sung Siew, Sabah, Malaysia",

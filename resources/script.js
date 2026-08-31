@@ -47,7 +47,9 @@
         smartphone: '<rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18.5h2"/>',
         external: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
         deck: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
-        play: '<circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5z"/>'
+        play: '<circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5z"/>',
+        report: '<path d="M9 3.5h6a1 1 0 0 1 1 1V5h1a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1v-.5a1 1 0 0 1 1-1z"/><path d="M9 4.5h6M9 11h6M9 15h4"/><path d="m8.5 8 1 1 2-2"/>',
+        flask: '<path d="M9 3h6M10 3v6l-4.5 8a1.5 1.5 0 0 0 1.3 2.3h10.4a1.5 1.5 0 0 0 1.3-2.3L14 9V3"/><path d="M8 15h8"/>'
     };
 
     function icon(name, cls) {
@@ -137,21 +139,21 @@
                 '<a class="btn ' + cls + ' btn-sm" href="' + esc(href) +
                 '" target="_blank" rel="noopener">' + icon(ic) + esc(label) + '</a>';
 
+            // Only a link a project actually has gets a button. Nothing
+            // renders in place of a missing one, no placeholder text either.
             const parts = [];
-            if (p.live)  parts.push(link(p.live, 'btn-primary', 'external', p.liveLabel || 'Live demo'));
-            if (p.repo)  parts.push(link(p.repo, 'btn-outline', 'github', 'Repository'));
-            if (p.deck)  parts.push(link(p.deck, 'btn-outline', 'deck', 'Pitch deck'));
-            if (p.video) parts.push(link(p.video, 'btn-outline', 'play', 'Demo video'));
-
-            // Only say something is missing when there is genuinely nothing to show.
-            const actions = parts.length
-                ? parts.join('')
-                : '<span class="link-disabled">Not publicly available</span>';
+            if (p.live)   parts.push(link(p.live, 'btn-primary', 'external', p.liveLabel || 'Live demo'));
+            if (p.repo)   parts.push(link(p.repo, 'btn-outline', 'github', 'Repository'));
+            if (p.deck)   parts.push(link(p.deck, 'btn-outline', 'deck', 'Pitch deck'));
+            if (p.video)  parts.push(link(p.video, 'btn-outline', 'play', 'Demo video'));
+            if (p.report) parts.push(link(p.report, 'btn-outline', 'report', 'Assignment report'));
+            const actions = parts.join('');
 
             return '<article class="project-card fade-up" data-cats="' + esc(p.cats.join(' ')) + '">' +
-                '<div class="project-thumb">' +
+                '<div class="project-thumb" id="thumb-' + esc(p.title.replace(/[^a-z0-9]/gi, '')) + '">' +
                     glyph(p.glyph) +
-                    (p.award ? '<span class="project-award">★ ' + esc(p.award) + '</span>' : '') +
+                    (p.prototype ? '<span class="project-award proto">Prototype</span>' :
+                     p.award ? '<span class="project-award">★ ' + esc(p.award) + '</span>' : '') +
                     '<span class="project-date">' + esc(p.date) + '</span>' +
                 '</div>' +
                 '<div class="project-body">' +
@@ -161,7 +163,7 @@
                     '<ul class="project-impact">' + p.impact.map(i => '<li>' + i + '</li>').join('') + '</ul>' +
                     '<div class="tag-list">' + p.tags.map(t => '<span class="tag">' + esc(t) + '</span>').join('') + '</div>' +
                 '</div>' +
-                '<div class="project-actions">' + actions + '</div>' +
+                (actions ? '<div class="project-actions">' + actions + '</div>' : '') +
             '</article>';
         }).join('');
 
@@ -173,6 +175,27 @@
             $$('.project-card').forEach(c => {
                 const show = f === 'all' || c.dataset.cats.split(' ').indexOf(f) > -1;
                 c.classList.toggle('hide', !show);
+            });
+        });
+    }
+
+    /* A project can name a real screenshot via `thumb` (a base path, no
+       extension, e.g. "src/seashark_ui"). If the file exists it replaces the
+       decorative glyph; if not, the glyph stays and nothing else changes. */
+    function loadProjectThumbs() {
+        D.projects.forEach(p => {
+            if (!p.thumb) return;
+            const id = 'thumb-' + p.title.replace(/[^a-z0-9]/gi, '');
+            const el = document.getElementById(id);
+            if (!el) return;
+            resolveImage(p.thumb).then(url => {
+                if (!url) return;
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = p.title;
+                img.className = 'project-thumb-img';
+                el.appendChild(img);
+                el.classList.add('has-photo');
             });
         });
     }
@@ -241,6 +264,10 @@
     function renderAwards() {
         $('#awardsGrid').innerHTML = D.awards.map(a =>
             '<article class="award-card fade-up">' +
+                (a.photo
+                    ? '<div class="award-photo"><img src="' + esc(a.photo) + '" alt="' + esc(a.title) +
+                      '" onerror="this.closest(\'.award-photo\').remove()"></div>'
+                    : '') +
                 '<div class="award-top">' +
                     '<span class="award-medal">' + a.medal + '</span>' +
                     '<span class="award-place">' + esc(a.place) + '</span>' +
@@ -259,7 +286,10 @@
     function renderEducation() {
         $('#educationGrid').innerHTML = D.education.map(e =>
             '<article class="edu-card fade-up">' +
-                '<span class="edu-badge">' + esc(e.badge) + '</span>' +
+                (e.photo
+                    ? '<span class="edu-badge edu-badge-photo"><img src="' + esc(e.photo) + '" alt="' + esc(e.degree) +
+                      '" onerror="this.parentElement.classList.remove(\'edu-badge-photo\');this.remove()"></span>'
+                    : '<span class="edu-badge">' + esc(e.badge) + '</span>') +
                 '<div class="edu-main">' +
                     '<div class="edu-head"><h3>' + esc(e.degree) + '</h3>' +
                     '<span class="edu-years">' + esc(e.years) + '</span></div>' +
@@ -321,17 +351,17 @@
        SECTION BANNERS
        Tries each extension in turn; hides the banner if no file is found.
        --------------------------------------------------------------------- */
-    const BANNER_EXT = ['jpg', 'png', 'webp', 'jpeg'];
+    const IMG_EXT = ['jpg', 'png', 'webp', 'jpeg'];
 
-    /* Probe each extension with a detached Image so the result does not depend
-       on the section being visible. Only a file that actually resolves gets
-       inserted into the page. */
-    function findBanner(n) {
+    /* Probe a base path (no extension) against IMG_EXT with a detached Image,
+       so the result does not depend on the element being visible. Resolves
+       to the first URL that actually loads, or null if none do. */
+    function resolveImage(base) {
         return new Promise(resolve => {
             let i = 0;
             const probe = () => {
-                if (i >= BANNER_EXT.length) return resolve(null);
-                const url = 'src/session_title_' + n + '.' + BANNER_EXT[i++];
+                if (i >= IMG_EXT.length) return resolve(null);
+                const url = base + '.' + IMG_EXT[i++];
                 const test = new Image();
                 test.onload = () => resolve(url);
                 test.onerror = probe;
@@ -340,6 +370,8 @@
             probe();
         });
     }
+
+    function findBanner(n) { return resolveImage('src/session_title_' + n); }
 
     function renderBanners() {
         (D.sectionImages || []).forEach(item => {
@@ -470,6 +502,7 @@
         renderHero();
         renderAbout();
         renderProjects();
+        loadProjectThumbs();
         renderSkills();
         renderExperience();
         renderAwards();
