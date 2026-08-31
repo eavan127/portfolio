@@ -45,7 +45,9 @@
         'git-branch': '<circle cx="6" cy="5" r="2.5"/><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="9" r="2.5"/><path d="M6 7.5v9M18 11.5c0 3.5-3 4.5-6 4.5"/>',
         'check-circle': '<circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
         smartphone: '<rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18.5h2"/>',
-        external: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'
+        external: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
+        deck: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+        play: '<circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5z"/>'
     };
 
     function icon(name, cls) {
@@ -131,15 +133,20 @@
         ).join('');
 
         $('#projectsGrid').innerHTML = D.projects.map(p => {
-            let actions = '';
-            actions += p.repo
-                ? '<a class="btn btn-outline btn-sm" href="' + esc(p.repo) + '" target="_blank" rel="noopener">' +
-                  icon('github') + 'Repository</a>'
-                : '<span class="link-disabled">Repository private</span>';
-            actions += p.live
-                ? '<a class="btn btn-primary btn-sm" href="' + esc(p.live) + '" target="_blank" rel="noopener">' +
-                  icon('external') + esc(p.liveLabel || 'Live') + '</a>'
-                : '<span class="link-disabled">No live deployment</span>';
+            const link = (href, cls, ic, label) =>
+                '<a class="btn ' + cls + ' btn-sm" href="' + esc(href) +
+                '" target="_blank" rel="noopener">' + icon(ic) + esc(label) + '</a>';
+
+            const parts = [];
+            if (p.live)  parts.push(link(p.live, 'btn-primary', 'external', p.liveLabel || 'Live demo'));
+            if (p.repo)  parts.push(link(p.repo, 'btn-outline', 'github', 'Repository'));
+            if (p.deck)  parts.push(link(p.deck, 'btn-outline', 'deck', 'Pitch deck'));
+            if (p.video) parts.push(link(p.video, 'btn-outline', 'play', 'Demo video'));
+
+            // Only say something is missing when there is genuinely nothing to show.
+            const actions = parts.length
+                ? parts.join('')
+                : '<span class="link-disabled">Not publicly available</span>';
 
             return '<article class="project-card fade-up" data-cats="' + esc(p.cats.join(' ')) + '">' +
                 '<div class="project-thumb">' +

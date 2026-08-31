@@ -24,8 +24,17 @@ Everything readable lives in `resources/data.js`. Add a project by appending an
 object to `projects`; the card, its filter category and its links render
 themselves.
 
-- `repo: null` renders "Repository private"
-- `live: null` renders "No live deployment"
+Each project renders one button per link it actually has. Omit a field, or
+set it to `null`, and that button simply does not appear:
+
+| Field | Button |
+|-------|--------|
+| `live` + `liveLabel` | filled button, label of your choosing |
+| `repo` | Repository |
+| `deck` | Pitch deck |
+| `video` | Demo video |
+
+A project with none of them shows a single muted "Not publicly available".
 
 Fields marked as rich text, `bio`, project `impact`, expertise `bullets` 
 accept `<strong>` for emphasis. Every other field is escaped and shown as-is.

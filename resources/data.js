@@ -109,7 +109,9 @@ const portfolioData = {
                 "Circuit-breaker layer guards against Ollama outages and prompt injection, so the pipeline degrades safely instead of returning confident nonsense."
             ],
             tags: ["Python", "FastAPI", "LangChain", "Ollama", "RAG", "Supabase", "pandas"],
-            repo: "https://github.com/eavan127/NEXA-AI-Powered-Tariff", live: null
+            repo: "https://github.com/eavan127/NEXA-AI-Powered-Tariff", live: null,
+            deck: "https://drive.google.com/file/d/1Li6CizwlhdVsPhlAiRMOc4FM3TRB7wub/view",
+            video: "https://drive.google.com/file/d/1O3v3ORr7W8zI_I41Uzz-YH745zjbmboO/view"
         },
         {
             cats: ["vr", "ai"], glyph: "box",
@@ -125,7 +127,9 @@ const portfolioData = {
             ],
             tags: ["Unity 6", "C#", "GROQ Cloud API", "Ollama", "Google Cloud STT/TTS", "WebGL"],
             repo: "https://github.com/eavan127/LUMENIX_CulturaVerseVR",
-            live: "https://lumenix.itch.io/cultura-verse-vr", liveLabel: "Play on itch.io"
+            live: "https://lumenix.itch.io/cultura-verse-vr", liveLabel: "Play on itch.io",
+            deck: "https://drive.google.com/file/d/1463D2tVWq5JokGm79TMFmdhEuLfcvH9y/view",
+            video: "https://drive.google.com/file/d/1XTl0zifoSe-c_xH7gd8MerCS0Oo6nDJ7/view"
         },
         {
             cats: ["ai", "cv"], glyph: "camera",
@@ -155,7 +159,8 @@ const portfolioData = {
                 "Built a <strong>~58,800-example dataset</strong> from four sources with synthetic FHSS and jamming generators, locked behind <strong>104 passing tests</strong>."
             ],
             tags: ["Python", "PyTorch", "CNN", "STFT", "Signal Processing", "pytest"],
-            repo: "https://github.com/eavan127/sedicAI_NEXA", live: null
+            repo: "https://github.com/eavan127/sedicAI_NEXA",
+            live: "https://sedicai-nexa.onrender.com/", liveLabel: "Live demo"
         },
         {
             cats: ["ai"], glyph: "search",
@@ -169,7 +174,8 @@ const portfolioData = {
                 "Added noisy-text normalisation and benchmarked retrieval across a <strong>30-sentence test set spanning all 3 dialects</strong>."
             ],
             tags: ["Python", "Streamlit", "FAISS", "Sentence Transformers", "scikit-learn"],
-            repo: "https://github.com/eavan127/rag_dialect", live: null
+            repo: "https://github.com/eavan127/rag_dialect",
+            live: "https://eavan127-malaysian-dialect-rag.streamlit.app", liveLabel: "Try it live"
         },
         {
             cats: ["ai"], glyph: "users",
@@ -184,20 +190,6 @@ const portfolioData = {
             ],
             tags: ["Amazon Bedrock", "AWS", "Python", "MCP", "Kiro", "ETL"],
             repo: null, live: null
-        },
-        {
-            cats: ["cv", "ai"], glyph: "smartphone",
-            title: "PawGuard AI: Disaster-Ready Animal Rescue",
-            sub: "KitaHack 2026 · Google Developer Groups",
-            date: "Jan to May 2026", award: null,
-            desc: "The mobile origin of PawSecure. An on-device AI app helping the public and NGOs identify, report and adopt stray animals, with disaster scenarios as the driving use case.",
-            impact: [
-                "Real-time on-device detection at <strong>15 to 30 FPS</strong> with TensorFlow Lite, so identification works with no network in a disaster zone.",
-                "Breed classification across <strong>70+ dog and cat breeds</strong> with confidence-based verification before a report is accepted.",
-                "Dual-audience product design, with one app serving public reporters and NGO rescuers through genuinely different workflows."
-            ],
-            tags: ["Flutter", "Dart", "Firebase", "TensorFlow Lite", "Gemini AI", "Google Maps"],
-            repo: "https://github.com/Jessy123123/PawGuard_AI", live: null
         },
         {
             cats: ["data"], glyph: "database",

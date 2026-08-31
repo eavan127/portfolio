@@ -563,7 +563,8 @@ ul { list-style: none; }
 .project-actions {
     padding: 0 18px 18px; display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto;
 }
-.project-actions .btn { flex: 1; min-width: 120px; }
+.project-actions .btn { flex: 1 1 calc(50% - 4px); min-width: 118px; }
+.project-actions .btn:only-child { flex: 1 1 100%; }
 .link-disabled {
     flex: 1; min-width: 120px;
     display: inline-flex; align-items: center; justify-content: center; gap: 6px;
