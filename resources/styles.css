@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Eavan Tan — Portfolio
+   Eavan Tan, Portfolio
    Layout modelled on a glassmorphic SPA portfolio pattern.
    Dark by default; light mode via [data-theme="light"].
    ========================================================================== */
@@ -22,7 +22,7 @@
    -------------------------------------------------------------------------- */
 
 :root {
-    /* dark — the default */
+    /* dark, the default */
     --bg-primary: #080808;
     --bg-secondary: #101010;
     --card-bg: #151515;
@@ -83,7 +83,7 @@ body {
 
 h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; line-height: 1.2; }
 
-/* Display face — reserved for the two largest moments on the page:
+/* Display face, reserved for the two largest moments on the page:
    the hero name and each section title. Anton only has one weight. */
 .display {
     font-family: 'Anton', 'Outfit', Impact, sans-serif;
@@ -361,7 +361,7 @@ ul { list-style: none; }
 .social-pill .pill-ico { background: var(--accent); color: var(--btn-text); }
 .social-pill:hover .pill-ico { background: var(--accent-secondary); }
 
-/* hero photo — arch shape */
+/* hero photo, arch shape */
 .hero-visuals-wrapper { position: relative; display: flex; justify-content: center; }
 .hero-image-container {
     position: relative; width: 100%; max-width: 320px; aspect-ratio: 4 / 5;

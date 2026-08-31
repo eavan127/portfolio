@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Eavan Tan — portfolio behaviour
+   Eavan Tan, portfolio behaviour
    SPA section routing, renderers, light/dark theme.
    ========================================================================== */
 
@@ -16,7 +16,7 @@
         ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
     /* ---------------------------------------------------------------------
-       ICONS — inline so the page has no external script dependency
+       ICONS, inline so the page has no external script dependency
        --------------------------------------------------------------------- */
     const PATHS = {
         home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/>',
@@ -303,7 +303,7 @@
             e.preventDefault();
             const f = new FormData(e.target);
             const subject = 'Portfolio enquiry from ' + f.get('name');
-            const body = f.get('message') + '\n\n—\n' + f.get('name') + '\n' + f.get('email');
+            const body = f.get('message') + '\n\n\n' + f.get('name') + '\n' + f.get('email');
             window.location.href = 'mailto:' + D.email +
                 '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
             $('#formNote').textContent = 'Your mail client should now be open with the message ready to send.';
@@ -311,7 +311,7 @@
     }
 
     /* ---------------------------------------------------------------------
-       NAVIGATION — SPA section switching
+       NAVIGATION, SPA section switching
        --------------------------------------------------------------------- */
     const LANDING = ['home', 'about'];
 
