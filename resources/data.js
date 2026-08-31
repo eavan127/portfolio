@@ -50,7 +50,7 @@ const portfolioData = {
 
     projects: [
         {
-            cats: ["ai", "data"], glyph: "cpu",
+            cats: ["ai", "data"], glyph: "cpu", thumb: "resources/assets/hero/projects/Jabil_tariff",
             title: "NEXA: AI-Assisted Tariff Automation",
             sub: "Jabil IT ECP Bootcamp 3.0 · Use Case 2",
             date: "Jun 2026", award: "Champion",
@@ -226,7 +226,7 @@ const portfolioData = {
             report: "https://drive.google.com/file/d/1_IKnCwnEdPDtljYgVzWG1iBFU3LtSp4C/view"
         },
         {
-            cats: ["sys"], glyph: "git-branch",
+            cats: ["sys"], glyph: "git-branch", thumb: "resources/assets/hero/projects/tutorial",
             title: "Algorithms & Data Structures Lab Set",
             sub: "ADS TEB1113 · full course archive",
             date: "May to Jul 2026", award: null,
