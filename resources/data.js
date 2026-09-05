@@ -273,7 +273,7 @@ const portfolioData = {
     skills: [
         {
             group: "AI & Machine Learning",
-            items: ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "RAG", "YOLO11",
+            items: ["Machine Learning", "Deep Learning", "Computer Vision", "OpenCV", "NLP", "RAG", "YOLO11",
                 "ResNet18", "FAISS", "Vector Search", "Sentence Transformers", "LangChain", "Ollama",
                 "GROQ API", "Amazon Bedrock", "Microsoft Azure AI", "Google Gemini", "PyTorch"]
         },
@@ -284,8 +284,9 @@ const portfolioData = {
         },
         {
             group: "Languages & Dev Tools",
-            items: ["Python", "TypeScript", "C#", "C++", "VB.NET", "SQL", "React", "React Native / Expo",
-                "Streamlit", "Unity", "Three.js", "Vercel", "Kiro", "draw.io", "Adobe Illustrator"]
+            items: ["Python", "JavaScript", "TypeScript", "C#", "C++", "VB.NET", "SQL", "React", "React Native / Expo",
+                "Streamlit", "Unity", "Three.js", "Vercel", "Kiro", "draw.io", "Oracle SQL Developer",
+                "Google Colab", "Jupyter Notebook", "Adobe Illustrator"]
         }
     ],
 
@@ -293,7 +294,8 @@ const portfolioData = {
         { name: "Mandarin", level: "Native", pct: 100 },
         { name: "English", level: "C1 Oxford OOPT", pct: 90 },
         { name: "Malay", level: "Professional", pct: 80 },
-        { name: "Cantonese", level: "Working", pct: 60 }
+        { name: "Cantonese", level: "Working", pct: 60 },
+        { name: "French", level: "A1", pct: 20 }
     ],
 
     /* ---------------- Experience ---------------- */
@@ -468,7 +470,7 @@ const portfolioData = {
             years: "2025 to 2028",
             institution: "Universiti Teknologi PETRONAS, Perak, Malaysia",
             chips: [
-                { text: "CGPA 3.93", alt: false },
+                { text: "CGPA 3.95", alt: false },
                 { text: "PETRONAS Education Sponsorship Programme Scholar", alt: true }
             ]
         },
