@@ -513,6 +513,7 @@ const portfolioData = {
         { emoji: "🎹", photo: "resources/assets/hero/certifications/Piano Grade 7.jpg", issuer: "Trinity College London", date: "", name: "Trinity Grade 7 (Piano)", note: "Music theory and performance examination", link: null },
         { emoji: "💻", photo: "resources/assets/hero/certifications/OMC.png", issuer: "OH MY CODE 16.0, Universiti Teknologi PETRONAS", date: "2025", name: "Certificate of Achievement", note: "Scored 14.63 / 15 in the coursework competition", link: null },
         { emoji: "🛠️", photo: "resources/assets/hero/certifications/robotics_workshop1.png", issuer: "UTP SYNTECH Organization", date: "2025", name: "Road to ROBOCON Workshop", note: "Robotics project planning and competition readiness", link: null },
+        { emoji: "🦾", photo: "resources/assets/hero/certifications/robotics_workshop2.png", issuer: "UTP Department of Computing / Open Computing Club", date: "2026", name: "Advanced Robotics Module", note: "Certificate of completion, Advanced Robotics module", link: null },
         { emoji: "⚡", photo: "resources/assets/hero/certifications/Godamlah_hackathon.png", issuer: "GodamLah! Hackathon", date: "", name: "Certificate of Participation", note: "Hackathon participation", link: null },
         { emoji: "🚀", photo: "resources/assets/hero/certifications/Kolaxus_hackathon.png", issuer: "Kolaxus Hackathon", date: "", name: "Certificate of Participation", note: "Hackathon participation", link: null }
     ],
