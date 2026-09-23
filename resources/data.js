@@ -9,7 +9,7 @@ const portfolioData = {
     name: "EAVAN TAN",
     role: "Internship Seeker, May to Dec 2027",
     microline: "Bachelor of Computer Science | Universiti Teknologi PETRONAS | PETRONAS Scholar",
-    heroImage: "resources/assets/hero/home/profile.jpg",
+    heroImage: "resources/assets/hero/home/profile.webp",
     resumeLink: "resources/assets/docs/Eavan_Tan_Resume.pdf",
     email: "eavan_24006152@utp.edu.my",
 
