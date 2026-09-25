@@ -12,6 +12,7 @@ const portfolioData = {
     heroImage: "resources/assets/hero/home/profile.webp",
     resumeLink: "resources/assets/docs/Eavan_Tan_Resume.pdf",
     email: "eavan_24006152@utp.edu.my",
+    personalEmail: "evan17tan@gmail.com",
 
     bio: [
         "Built an AI pipeline that cut a customs-classification workflow from <strong>12.5 hours to about 15 minutes</strong>.",
@@ -23,7 +24,8 @@ const portfolioData = {
     socialLinks: {
         linkedin: "https://www.linkedin.com/in/eavan-tan-a13785324",
         github: "https://github.com/eavan127",
-        email: "mailto:eavan_24006152@utp.edu.my"
+        email: "mailto:eavan_24006152@utp.edu.my",
+        personalEmail: "mailto:evan17tan@gmail.com"
     },
 
     contactIntro:
@@ -32,6 +34,7 @@ const portfolioData = {
 
     contactLinks: [
         { icon: "school", label: "University email", value: "eavan_24006152@utp.edu.my", href: "mailto:eavan_24006152@utp.edu.my" },
+        { icon: "mail", label: "Personal email", value: "evan17tan@gmail.com", href: "mailto:evan17tan@gmail.com" },
         { icon: "phone", label: "Phone", value: "+60 10-505-1219", href: "tel:+60105051219" },
         { icon: "linkedin", label: "LinkedIn", value: "linkedin.com/in/eavan-tan-a13785324", href: "https://www.linkedin.com/in/eavan-tan-a13785324" },
         { icon: "github", label: "GitHub", value: "github.com/eavan127", href: "https://github.com/eavan127" }

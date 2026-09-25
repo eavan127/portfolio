@@ -75,12 +75,14 @@
         $('#heroSocials').innerHTML =
             pill(s.linkedin, 'linkedin', 'LinkedIn') +
             pill(s.github, 'github', 'Github') +
-            pill(s.email, 'email', 'Email');
+            pill(s.email, 'email', 'University Email') +
+            pill(s.personalEmail, 'email', 'Personal Email');
 
         $('#footerSocials').innerHTML =
             fsocial(s.linkedin, 'linkedin', 'LinkedIn') +
             fsocial(s.github, 'github', 'GitHub') +
-            fsocial(s.email, 'mail', 'Email');
+            fsocial(s.email, 'mail', 'University Email') +
+            fsocial(s.personalEmail, 'mail', 'Personal Email');
     }
 
     function pill(href, kind, label) {
@@ -321,7 +323,7 @@
             const f = new FormData(e.target);
             const subject = 'Portfolio enquiry from ' + f.get('name');
             const body = f.get('message') + '\n\n\n' + f.get('name') + '\n' + f.get('email');
-            window.location.href = 'mailto:' + D.email +
+            window.location.href = 'mailto:' + D.email + ',' + D.personalEmail +
                 '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
             $('#formNote').textContent = 'Your mail client should now be open with the message ready to send.';
         });
