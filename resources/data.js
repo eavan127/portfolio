@@ -77,11 +77,11 @@ const portfolioData = {
             desc: "A cross-platform VR, PC and mobile application letting students hold real-time spoken conversations with literary characters, so a set text becomes a person you can interrogate.",
             impact: [
                 "Led a <strong>six-member team</strong> from concept to a Middle East Regional Final placement, owning scope, technical direction and the pitch.",
-                "Shipped <strong>2 interactive AI character scenes</strong> with real-time <strong>6-class emotion detection</strong> reshaping the VR environment as the conversation shifts.",
+                "Shipped <strong>2 interactive AI character scenes</strong> where real-time <strong>4-class sentiment detection</strong> on Google Cloud NLP drives <strong>3 adaptive environment states</strong>, swapping skybox, weather and lighting as the conversation turns.",
                 "Voice loop runs on GROQ Cloud with Google Cloud STT/TTS and a local <strong>Ollama fallback</strong>, so a dead API never kills a live demo.",
                 "User testing confirmed the emotion-adaptive triggers fired correctly across scenes, so the adaptive layer was validated and not just implemented."
             ],
-            tags: ["Unity 6", "C#", "GROQ Cloud API", "Ollama", "Google Cloud STT/TTS", "WebGL"],
+            tags: ["Unity 6", "C#", "GROQ Cloud API", "Ollama", "Google Cloud STT/TTS", "Google Cloud NLP", "WebGL"],
             repo: "https://github.com/eavan127/LUMENIX_CulturaVerseVR",
             live: "https://lumenix.itch.io/cultura-verse-vr", liveLabel: "Play on itch.io",
             deck: "https://drive.google.com/file/d/1463D2tVWq5JokGm79TMFmdhEuLfcvH9y/view",
