@@ -53,6 +53,24 @@ const portfolioData = {
 
     projects: [
         {
+            cats: ["ai"], glyph: "activity", thumb: "resources/assets/hero/projects/Project_Overwatch",
+            title: "NEXA: RF Spectrum Intelligence",
+            sub: "SEDIC 2026 · Project Overwatch · Track Winner",
+            date: "Aug to Oct 2026", award: "Winner",
+            desc: "An offline electronic warfare console that reads raw radio and reports every emitter present at once: civilian comms, military radar and hostile jamming. Whatever the model is unsure about goes to a human, and the model itself never changes until a second person approves it.",
+            impact: [
+                "<strong>Human review is built into the pipeline, not bolted on.</strong> Triage routes every capture to either alert or review. An operator inspects the stored signal against ground truth, then submits a correction carrying both a label and a justification.",
+                "<strong>No model reaches service without a second pair of eyes.</strong> An analyst verifies each correction independently. Once corrections pass 15% in 7 days, retraining triggers, the candidate is evaluated, and only an approved model is activated. Every version is retained, so any deployment can be rolled back.",
+                "<strong>Multi-label sigmoid across 8 classes, not softmax</strong>, so a jammer sitting on top of a live link reports both. Detections resolve into a threat tier: Hostile, Military, Civilian or Empty.",
+                "<strong>Dual-branch fusion CNN, 181,898 parameters per model, five averaged.</strong> One branch reads raw IQ through dilated convolutions with no pooling, keeping the exact timing. The other reads a 16 point STFT as a 16 × 125 image, keeping where in frequency the energy sits.",
+                "<strong>99.73% precision on jamming</strong>, 7 false alarms across 19,260 windows, and all 8 classes above 80% recall. Every threat class holds above 80% from -6 dB upward, where the noise is stronger than the signal.",
+                "Runs <strong>entirely offline on a single workstation</strong>. ONNX inference in the browser, a local database, and a hash-chained, tamper-evident audit trail. Trained on <strong>128,400 labelled windows</strong> from three sources and locked behind <strong>487 passing tests</strong>."
+            ],
+            tags: ["Python", "PyTorch", "ONNX", "CNN", "STFT", "Signal Processing", "Human-in-the-Loop", "SQLite", "pytest"],
+            repo: "https://github.com/eavan127/sedicAI_NEXA",
+            live: "https://sedicai-nexa.onrender.com/", liveLabel: "Live demo"
+        },
+        {
             cats: ["ai", "data"], glyph: "cpu", thumb: "resources/assets/hero/projects/Jabil_tariff",
             title: "NEXA: AI-Assisted Tariff Automation",
             sub: "Jabil IT ECP Bootcamp 3.0 · Use Case 2",
@@ -101,24 +119,6 @@ const portfolioData = {
             ],
             tags: ["Python", "FastAPI", "YOLO11", "ResNet18", "OpenCV", "TypeScript", "Supabase", "pgvector"],
             repo: "https://github.com/eavan127/PawSecure", live: null
-        },
-        {
-            cats: ["ai"], glyph: "activity", thumb: "resources/assets/hero/projects/Project_Overwatch",
-            title: "NEXA: RF Spectrum Intelligence",
-            sub: "SEDIC 2026 · Project Overwatch · Track Winner",
-            date: "Aug to Oct 2026", award: "Winner",
-            desc: "An offline electronic warfare console that reads raw radio and reports every emitter present at once: civilian comms, military radar and hostile jamming. Whatever the model is unsure about goes to a human, and the model itself never changes until a second person approves it.",
-            impact: [
-                "<strong>Human review is built into the pipeline, not bolted on.</strong> Triage routes every capture to either alert or review. An operator inspects the stored signal against ground truth, then submits a correction carrying both a label and a justification.",
-                "<strong>No model reaches service without a second pair of eyes.</strong> An analyst verifies each correction independently. Once corrections pass 15% in 7 days, retraining triggers, the candidate is evaluated, and only an approved model is activated. Every version is retained, so any deployment can be rolled back.",
-                "<strong>Multi-label sigmoid across 8 classes, not softmax</strong>, so a jammer sitting on top of a live link reports both. Detections resolve into a threat tier: Hostile, Military, Civilian or Empty.",
-                "<strong>Dual-branch fusion CNN, 181,898 parameters per model, five averaged.</strong> One branch reads raw IQ through dilated convolutions with no pooling, keeping the exact timing. The other reads a 16 point STFT as a 16 × 125 image, keeping where in frequency the energy sits.",
-                "<strong>99.73% precision on jamming</strong>, 7 false alarms across 19,260 windows, and all 8 classes above 80% recall. Every threat class holds above 80% from -6 dB upward, where the noise is stronger than the signal.",
-                "Runs <strong>entirely offline on a single workstation</strong>. ONNX inference in the browser, a local database, and a hash-chained, tamper-evident audit trail. Trained on <strong>128,400 labelled windows</strong> from three sources and locked behind <strong>487 passing tests</strong>."
-            ],
-            tags: ["Python", "PyTorch", "ONNX", "CNN", "STFT", "Signal Processing", "Human-in-the-Loop", "SQLite", "pytest"],
-            repo: "https://github.com/eavan127/sedicAI_NEXA",
-            live: "https://sedicai-nexa.onrender.com/", liveLabel: "Live demo"
         },
         {
             cats: ["ai"], glyph: "search", thumb: "resources/assets/hero/projects/rag_dialect",
