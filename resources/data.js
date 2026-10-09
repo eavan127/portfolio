@@ -103,18 +103,19 @@ const portfolioData = {
             repo: "https://github.com/eavan127/PawSecure", live: null
         },
         {
-            cats: ["ai"], glyph: "activity",
-            title: "Project Overwatch: RF Signal Intelligence",
-            sub: "SEDIC 2026 · RF / Signal Track",
-            date: "Aug 2026", award: null,
-            desc: "A from-scratch neural network reading raw radio IQ data to identify civilian modulations, military waveforms and hostile jamming, including when several overlap in the same window.",
+            cats: ["ai"], glyph: "activity", thumb: "resources/assets/hero/projects/Project_Overwatch",
+            title: "NEXA: RF Spectrum Intelligence",
+            sub: "SEDIC 2026 · Project Overwatch · Track Winner",
+            date: "Aug to Oct 2026", award: "Winner",
+            desc: "An offline electronic-warfare console that reads raw radio IQ and reports every emitter present at once — civilian modulations, military radar and hostile jamming — then documents each call well enough to defend in a review.",
             impact: [
-                "Designed a <strong>dual-branch CNN (~148,938 parameters)</strong> trained from scratch, since no pretrained backbone exists for raw RF IQ.",
-                "One branch reads raw IQ to preserve phase, the other an STFT spectrogram for frequency movement; attention pooling fuses both, because <strong>neither alone does both jobs</strong>.",
-                "<strong>Multi-label sigmoid head across 8 classes</strong> means a jammer overlaid on a real signal reports both, instead of forcing one winner.",
-                "Built a <strong>~58,800-example dataset</strong> from four sources with synthetic FHSS and jamming generators, locked behind <strong>104 passing tests</strong>."
+                "Designed a <strong>dual-branch CNN (181,898 parameters)</strong> trained from scratch, since no pretrained backbone exists for raw RF IQ, and averaged across a <strong>5-model ensemble</strong>.",
+                "One branch reads raw IQ with dilated convolutions and <strong>no pooling at all</strong>, preserving the exact timing; the other reads a 16-point STFT for frequency position. Attention pooling fuses them, because <strong>neither view carries both</strong>.",
+                "<strong>Multi-label sigmoid across 8 classes, not softmax</strong> — so a jammer sitting on top of a live link reports both. Softmax would force one winner and lose the link the operator was protecting.",
+                "<strong>99.73% precision on jamming</strong> and a <strong>7.6×10⁻⁵ false-alarm rate</strong> against civilian traffic, with 92% threat-tier accuracy, trained on <strong>128,400 labelled windows</strong> and locked behind <strong>487 passing tests</strong>.",
+                "Runs <strong>entirely offline</strong> — ONNX inference in a browser worker, SQLite on the same machine, nothing leaves the laptop — with an <strong>append-only hash-chained audit trail</strong>, four-eyes approval and one-step model rollback."
             ],
-            tags: ["Python", "PyTorch", "CNN", "STFT", "Signal Processing", "pytest"],
+            tags: ["Python", "PyTorch", "ONNX", "CNN", "STFT", "Signal Processing", "SQLite", "pytest"],
             repo: "https://github.com/eavan127/sedicAI_NEXA",
             live: "https://sedicai-nexa.onrender.com/", liveLabel: "Live demo"
         },
@@ -421,6 +422,13 @@ const portfolioData = {
 
     /* ---------------- Awards ---------------- */
     awards: [
+        {
+            medal: "🥇", place: "Track Winner",
+            photo: "resources/assets/hero/awards/SEDIC_competition/SEDIC_group.jpg",
+            title: "Project Overwatch, RF / Signal Track",
+            org: "SEDIC '26 Strategic Electronic Defence Innovation Challenge, UPNM × CyberDSA", when: "October 2026",
+            desc: "First place out of ten finalist teams for NEXA, an offline electronic-warfare console that identifies overlapping civilian, radar and jamming emitters from raw RF. Judged at the Grand Finale by a panel drawn from the armed services, academia and the defence industry."
+        },
         {
             medal: "🥇", place: "Champion",
             photo: "resources/assets/hero/awards/Jabil_competition/Jabil_group.png",
